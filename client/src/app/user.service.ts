@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +8,25 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  getUsers(){
-    return this._http.get(`/users`);
+  getAll(){
+    return this._http.get('/users');
+  }
+  createOne(user){
+    return this._http.post('/users', user);
+  }
+  getOne(id){
+    return this._http.get(`/user/${id}`);
   }
 
-  removeUser(user_id){
-    return this._http.delete(`/users/${user_id}`);
+  addChat(id, review){
+    return this._http.post(`/users/${id}/chat`, chat);
   }
 
-  createUser(newUser){
-    return this._http.post(`/users`, newUser);
+  updateOne(id, user){
+    return this._http.put(`/users/${id}`, user);
+  }
+
+  deleteOne(id){
+    return this._http.delete(`/users/${id}`);
   }
 }

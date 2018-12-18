@@ -32,7 +32,7 @@ class Posts {
         res.json({"status": "not ok", "errors": err});
       }else{
         let postId = req.params.id;
-        Post.findOneAndUpdate({_id: req.params.id}, {$set: {name: req.body.name, rating: req.body.rating, post: req.body.post}}, options, function(err, data){
+        Post.findOneAndUpdate({_id: req.params.id}, {$set: {name: req.body.title, rating: req.body.contents}}, options, function(err, data){
           if(err){
             res.json({"status": "not ok", "errors": err});
           }else{
@@ -41,15 +41,9 @@ class Posts {
               if(err){
                 res.json({"status": "not ok", "errors": err});
               }else{
-                console.log("options ", options);
-                console.log("data ", data);
                 let postArray = data.posts;
-                console.log("postArray ", postArray);
-                console.log("updatedPost", updatedPost);
                 let postIndex = postArray.findIndex(i => i._id == postId);
-                console.log("indexof", postIndex);
                 postArray[postIndex] = updatedPost;
-                console.log("postArray", postArray);
                 User.findOneAndUpdate({_id: req.params.userid}, {$set: {posts: postArray}}, options, function(err, data){
                   if(err){
                     res.json({"status": "not ok", "errors": err});

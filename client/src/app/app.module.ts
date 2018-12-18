@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { UserService } from './user.service';
+import { PostService } from './post.service';
+import { CommentService } from './comment.service';
+import { ChatService } from './chat.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
@@ -28,6 +31,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule
   ],
   providers: [UserService],
+  providers: [PostService],
+  providers: [CommentService],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

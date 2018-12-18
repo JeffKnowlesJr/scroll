@@ -1,22 +1,22 @@
-console.log("inside of posts.js");
+console.log("inside of comments.js");
 
 const mongoose = require("mongoose");
-const Post = mongoose.model("Post");
-const User = mongoose.model("User");
+const Comment = mongoose.model("Comment");
+const Chat = mongoose.model("Chat");
 
 let options = {
   new:true,
   runValidators:true
 }
 
-class Posts {
+class Comments {
   create(req, res){
-    let post = new Post(req.body);
-    post.save(function(err){
+    let comment = new Comment(req.body);
+    comment.save(function(err){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{
-        User.findOneAndUpdate({_id: req.params.id}, {$push: {posts: post}}, options, function(err, data){
+        Chat.findOneAndUpdate({_id: req.params.id}, {$push: {comments: comment}}, options, function(err, data){
           if(err){
             res.json({"status": "not ok", "errors": err});
           }else{
@@ -27,24 +27,24 @@ class Posts {
     });
   }
   update(req, res) {
-    Post.findOne({_id: req.params.id}, function(err, data){
+    Comment.findOne({_id: req.params.id}, function(err, data){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{
-        let postId = req.params.id;
-        Post.findOneAndUpdate({_id: req.params.id}, {$set: {name: req.body.title, rating: req.body.contents}}, options, function(err, data){
+        let commentId = req.params.id;
+        Comment.findOneAndUpdate({_id: req.params.id}, {$set: {name: req.body.title, rating: req.body.contents}}, options, function(err, data){
           if(err){
             res.json({"status": "not ok", "errors": err});
           }else{
-            let updatedPost = data;
-            User.findOne({_id: req.params.userid}, function(err, data){
+            let updatedComment = data;
+            Chat.findOne({_id: req.params.chatid}, function(err, data){
               if(err){
                 res.json({"status": "not ok", "errors": err});
               }else{
-                let postArray = data.posts;
-                let postIndex = postArray.findIndex(i => i._id == postId);
-                postArray[postIndex] = updatedPost;
-                User.findOneAndUpdate({_id: req.params.userid}, {$set: {posts: postArray}}, options, function(err, data){
+                let commentArray = data.comments;
+                let commentIndex = commentArray.findIndex(i => i._id == commentId);
+                commentArray[commentIndex] = updatedComment;
+                Chat.findOneAndUpdate({_id: req.params.chatid}, {$set: {comments: commentArray}}, options, function(err, data){
                   if(err){
                     res.json({"status": "not ok", "errors": err});
                   }else{
@@ -59,7 +59,7 @@ class Posts {
     });
   }
   delete(req, res) {
-    Post.findByIdAndRemove({_id: req.params.id}, function(err, data){
+    Comment.findByIdAndRemove({_id: req.params.id}, function(err, data){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{
@@ -69,4 +69,4 @@ class Posts {
   }
 }
 
-module.exports = new Posts();
+module.exports = new Comments();

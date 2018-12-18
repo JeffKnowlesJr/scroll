@@ -11,7 +11,7 @@ const PostSchema = new mongoose.Schema(
       maxlength: [255, "Title must be less than 255 characters."]
     },
     // Post Model Attribute Contents
-    rating: {
+    contents: {
       type: String,
       required: [true, "Post must have contents."],
       maxlength: [2000, "Contents must be less than 2000 characters."],

@@ -1,0 +1,14 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <fieldset>
+    <legend>Add a new User</legend>
+    <form (submit)="makeUser()">
+      <input type="text" name="newUser.name" [(ngModel)]="newUser.name" placeholder="name" />
+      <input type="submit" value="Create" />
+    </form>
+  </fieldset>
+</div>
+<!--<app-user *ngFor="let user of users" [user]="user" (userEvent)="andGetUsers()"></app-user>-->

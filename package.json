@@ -1,7 +1,6 @@
 {
   "name": "Angular",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,6 +12,15 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mongoose": "^5.3.15"
-  }
+    "mongoose": "^5.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffKnowlesJr/scroll.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JeffKnowlesJr/scroll/issues"
+  },
+  "homepage": "https://github.com/JeffKnowlesJr/scroll#readme",
+  "description": ""
 }

@@ -9,7 +9,7 @@ import * as $ from 'jquery';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'scrollett';
+  title = 'scroll';
   users = [];
   newUser = {
     "name": ""
@@ -21,7 +21,8 @@ export class AppComponent {
 
     // JQuery Function Integrations
     $(document).ready(function(){
-      $("html, body").animate({ scrollTop: 0 }, "slow");
+      // $("html, body").animate({ scrollTop: 0 }, "slow");
+
       $('div.hidden').fadeIn(1500).removeClass('hidden');
 
       $("#info_head_1").hide();
@@ -42,8 +43,14 @@ export class AppComponent {
 
         about.animate({fontSize: '50px'}, 1000);
 
-        $(".icons").fadeIn(3500, function(){});
+        $(".icons").fadeIn(3000, function(){});
       });
+
+      $('.arrow3').click(function(){
+        $("html, body").animate({ scrollTop: 2905 }, "slower");
+        $('.arrow3').fadeOut("slow");
+      });
+
     });
   }
 

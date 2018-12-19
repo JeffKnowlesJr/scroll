@@ -31,9 +31,9 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule
   ],
   providers: [UserService],
-  providers: [PostService],
-  providers: [CommentService],
-  providers: [ChatService],
+  // providers: [PostService],
+  // providers: [CommentService],
+  // providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

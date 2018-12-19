@@ -24,7 +24,7 @@
 .search{
   position: relative;
   left:100px;
-  background-color: rgba(0, 0, 0, 0.103);
+  background-color: rgba(0, 0, 0, 0.171);
   border-radius: 10px;
 }
 .search input{
@@ -67,22 +67,37 @@
   border-radius: 4px;
   margin:0 10px;
   cursor: pointer;
+  transition: .5s;
 }
 .nav_bar ul li a{
   text-decoration: none;
   font-size: 18px;
   text-align: center;
+  transition: .5s;
 }
 
 .about{
   background-color: white !important;
   border:none !important;
   padding-top: 8px !important;
-
+  transition: .5s;
 }
 
 .about a {
   color:hsl(184, 24%, 55%) !important;
+}
+
+
+.nav_bar ul li:hover{
+  background-color: white;
+}
+
+.nav_bar ul li:hover a {
+  color:hsl(184, 24%, 55%);
+}
+
+.about:hover {
+  background-color: rgb(92, 56, 109) !important;
 }
 
 /* <------- Header Styling ------->*/
@@ -90,12 +105,25 @@
 .page_head{
   position: relative;
   top:300px;
+  width:100%;
 }
 
+.head_text{
+  width:30%;
+  margin:auto;
+  transition:.5s;
+  border-radius: 8px;
+}
 .page_head h1 {
   font-size: 80px;
   font-family: 'Nunito', sans-serif;
   text-align: center;
+  border:2px solid white;
+  border-radius: 8px;
+}
+
+.head_text:hover {
+  background-color: rgb(107, 87, 124);
 }
 
 .page_head h4 {
@@ -113,10 +141,136 @@
   color:white !important;
 }
 
+.fa-newspaper {
+  top:600px;
+  font-size: 400px;
+  color:rgba(255, 255, 255, 0.404) !important;
+  position: fixed;
+  transition:.5s;
+}
+
+.fa-signature {
+  right:300px;
+  top:300px;
+  font-size: 200px;
+  color:rgba(255, 255, 255, 0.404) !important;
+  position: fixed;
+  transition:.5s;
+}
+
+.fa-pen-fancy {
+  right:0px;
+  top:80px;
+  font-size: 300px;
+  color:rgba(255, 255, 255, 0.404) !important;
+  position: fixed;
+  transition:.5s;
+}
+
+.down_arrow{
+  padding-top: 200px;
+  width:80px;
+  margin:auto;
+}
+
+.fa-angle-double-down {
+  font-size: 80px;
+  color:rgba(255, 255, 255, 0.404) !important;
+  transition:.5s;
+}
+
+.arrow1{
+  bottom:80px;
+}
+
+.fa-angle-double-down:hover{
+  color:white !important;
+}
+.fa-pen-fancy:hover{
+  color:white !important;
+}
+.fa-signature:hover{
+  color:white !important;
+}
+.fa-newspaper:hover
+{
+  color:white !important;
+}
+
+/* <------- Picture Styling ------->*/
+
+.picture_contain{
+  position: relative;
+  top:310px;
+}
+
+.picture_contain img{
+  width:100%;
+  z-index: 0;
+}
+
+.picture_contain h4{
+  position: relative;
+  z-index: 1;
+  font-size: 40px;
+  top:-1000px;
+  text-align: center;
+}
+
+.arrow2{
+  position: relative;
+  z-index: 1;
+  font-size: 40px;
+  top:-580px;
+  text-align: center;
+}
+
+/* <------- Info Styling ------->*/
+
+.page_info {
+  position: relative;
+  top:-60px;
+  width: 100%;
+  height:920px;
+  background-color: rgb(92, 56, 109);
+}
+
+#about{
+  padding-top: 100px;
+  text-align: center;
+}
+
+#info_head_2{
+  margin-top: 100px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.page_info_2 {
+  position: relative;
+  top:1000px;
+  width: 100%;
+  height:890px;
+  text-align: center;
+  background-color: rgb(97, 158, 95);
+}
+
+.page_info_2 h3{
+  padding-top: 20px;
+  text-align: center;
+}
+
+.arrow3{
+  position: relative;
+  top:0px;
+}
+
+/* <------- Info Icon Styling ------->*/
+
 .icons{
   position: relative;
-  top:250px;
-  width:760px;
+  top:120px;
+  width:950px;
   margin:auto;
 }
 
@@ -140,6 +294,13 @@ i {
   left:40px;
 }
 
+.fa-camera {
+  position: relative;
+  font-size: 70px;
+  top:35px;
+  left:36px;
+}
+
 .fa-paper-plane {
   position: relative;
   font-size: 70px;
@@ -147,30 +308,24 @@ i {
   left:30px;
 }
 
-/* <------- Info Styling ------->*/
-
-.page_info {
+.fa-laptop {
   position: relative;
-  top:590px;
-  width: 100%;
-  height:920px;
-  background-color: rgb(92, 56, 109);
+  font-size: 70px;
+  top:35px;
+  left:27px;
 }
 
-.page_info h3{
-  padding-top: 20px;
-  text-align: center;
-}
-
-.page_info_2 {
+.fa-mobile {
   position: relative;
-  top:590px;
-  width: 100%;
-  height:890px;
-  background-color: rgb(97, 158, 95);
+  font-size: 70px;
+  top:35px;
+  left:48px;
 }
 
-.page_info_2 h3{
-  padding-top: 20px;
-  text-align: center;
+.hidden{
+  visibility: hidden;
+}
+
+.hidden2{
+  visibility:hidden;
 }

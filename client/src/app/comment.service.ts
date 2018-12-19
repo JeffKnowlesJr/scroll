@@ -11,9 +11,9 @@ export class CommentService {
   getAll(){
     return this._http.get('/comments');
   }
-  createOne(comment){
-    return this._http.comment('/comments', comment);
-  }
+  // createOne(comment){
+  //   return this._http.comment('/comments', comment);
+  // }
   getOne(id){
     return this._http.get(`/comment/${id}`);
   }

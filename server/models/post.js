@@ -1,6 +1,7 @@
 console.log("inside of post.js");
 
 const mongoose = require("mongoose");
+const CommentSchema = require("./comment")
 
 const PostSchema = new mongoose.Schema(
   {
@@ -26,7 +27,8 @@ const PostSchema = new mongoose.Schema(
     creator_name: {
       type: String,
       required: [true, "Post must have a creator."]
-    }
+    },
+    comments: [CommentSchema];
   },
   {timestamps: true}
 );

@@ -12,4 +12,8 @@ module.exports = function(app){
   app.post("/posts/:id", Posts.create);
   app.put("/posts/:id", Posts.update);
   app.delete("/posts/:id", Posts.delete);
+  app.get("/comments/:id", Comments.getAll);
+  app.post("/comments/:id", Comments.create);
+  app.put("/comments/:id", Comments.update);
+  app.delete("/comments/:id", Comments.delete);
 }

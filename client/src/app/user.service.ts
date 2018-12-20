@@ -14,8 +14,12 @@ export class UserService {
   createUser(user){
     return this._http.post('/users', user);
   }
-  getOne(id){
-    return this._http.get(`/user/${id}`);
+  // login
+  getOne(user){
+    return this._http.post(`/user`, user);
+  }
+  getOneById(id){
+    return this._http.get(`/user`, id);
   }
 
   updateOne(id, user){

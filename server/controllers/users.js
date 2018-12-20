@@ -2,6 +2,7 @@ console.log("inside of users.js");
 
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
+// const session = require('express-session');
 
 let options = {
   new:true,
@@ -12,26 +13,55 @@ let options = {
 
 class Users {
   create(req, res){
-    User.findOne({email: req.body.email}, function(err, user){
-      if(user){
-        res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "This email already exists in the database"}}}});
-      }
-    })
-    User.findOne({username: req.body.username}, function(err, user){
-      if(user){
+    User.findOne({username: req.body.username}, function(err, data){
+      console.log(data);
+      if(data){
         res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "This username already exists in the database"}}}});
+      } else {
+        User.findOne({email: req.body.email}, function(err, data){
+          if(data){
+            res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "This email already exists in the database"}}}});
+          } else {
+            let user = new User(req.body);
+            user.save(function(err){
+              if(err){
+                res.json({"status": "not ok", "errors": err});
+              }else{
+                console.log('successful register')
+                req.session.user_id = user._id;
+                req.session.logged_in = true;
+                res.json({"status": "ok", "user": data});
+              }
+            });
+          }
+        })
+
       }
     })
-    
-    let user = new User(req.body);
-    user.save(function(err){
-      if(err){
-        res.json({"status": "not ok", "errors": err});
-      }else{
-        res.json({"status": "ok", "data": user});
+  }
+  getUser(req, res){
+    User.findOne({email: req.body.email}, function(err, data){
+      console.log("This is req.body", req.body);
+      console.log("this is the data", data);
+      if(req.body.email == ''){
+        res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "Email cannot be blank"}}}});
+      } else if(!data) {
+        res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "No account associated with this email. Please create an account."}}}});
+      } else if(data.password != req.body.password) {
+        res.json({"status": "not ok", "errors": {"errors": {"password": {"message": "Incorrect password."}}}});
+      } else {
+        if(err) {
+            res.json({"status": "not ok", "errors": err});
+        } else {
+          req.session.user_id = data._id;
+          req.session.logged_in = true;
+          console.log(req.session);
+          res.json({"status": "ok", "user": data, "session": req.session});
+        }
       }
     });
   }
+
   getAll(req, res){
     User.find({}, function(err, users){
       if(err){

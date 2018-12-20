@@ -29,9 +29,10 @@
       <input class="login_input" type="text" name="user.email" [(ngModel)]="user.email" placeholder="email">
       <input class="login_input" type="text" name="user.password" [(ngModel)]="user.password" placeholder="password">
       <div class="error">
-        <p class="errorText" *ngIf="errors.username">{{errors.username.message}}</p>
-        <p class="errorText" *ngIf="errors.email">{{errors.email.message}}</p>
-        <p class="errorText" *ngIf="errors.password">{{errors.password.message}}</p>
+        <p *ngIf="errors.username">{{errors.username.message}}</p>
+        <p *ngIf="errors.email">{{errors.email.message}}</p>
+        <p *ngIf="errors.password">{{errors.password.message}}</p>
+        <p *ngIf="errors.repeat">{{errors.repeat.message}}</p>
       </div>
       <input class="submit" type="submit" value="Start Scrolling">
     </form>

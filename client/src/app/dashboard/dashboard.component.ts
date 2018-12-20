@@ -12,8 +12,8 @@ import * as $ from 'jquery';
 export class DashboardComponent implements OnInit {
   title = "scroll";
   add_post = false;
-  //add_postText = false;
-  // user: any;
+  add_postText = false;
+  user: any;
   errors = {};
 
   constructor(
@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.thisUser();
+    this.thisUser();
 
     console.log('made it to dashboard')
       $(document).ready(function(){
@@ -45,17 +45,17 @@ export class DashboardComponent implements OnInit {
       });
     }
 
-  // thisUser(){
-  //   let observable = this._userService.getOneById();
-  //   observable.subscribe(data => {
-  //     if(data['status'] == "not ok"){
-  //       this.errors = data['errors']['errors'];
-  //       this._router.navigate(['/']);
-  //     } else {
-  //       this.user = data["user"]
-  //     }
-  //   });
-  // }
+  thisUser(){
+    let observable = this._userService.getOneById();
+    observable.subscribe(data => {
+      if(data['status'] == "not ok"){
+        this.errors = data['errors']['errors'];
+        this._router.navigate(['/']);
+      } else {
+        this.user = data["user"]
+      }
+    });
+  }
   logout(){
     let observable = this._userService.signOff();
     observable.subscribe(data => {

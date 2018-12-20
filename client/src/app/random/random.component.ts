@@ -26,6 +26,7 @@ export class RandomComponent implements OnInit {
 
   ngOnInit() {
     this.thisUser();
+    this.getAllCards();
 
     $(document).ready(function(){
       // $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -37,6 +38,12 @@ export class RandomComponent implements OnInit {
   getAllCards(){
     let observable = this._postService.getAll();
     observable.subscribe( data => {
+      for (let i = data['posts'].length-1; i > 0; i--){
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = data['posts'][i];
+        data['posts'][i] = data['posts'][j];
+        data['posts'][j] = temp;
+      }
       this.cards = data['posts'];
       console.log(data);
     });

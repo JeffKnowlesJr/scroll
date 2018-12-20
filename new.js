@@ -12,7 +12,7 @@ import * as $ from 'jquery';
 export class DashboardComponent implements OnInit {
   title = "scroll";
   add_post = false;
-  user: any;
+
   errors = {};
 
   constructor(

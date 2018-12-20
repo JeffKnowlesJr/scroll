@@ -38,13 +38,14 @@ export class RandomComponent implements OnInit {
   getAllCards(){
     let observable = this._postService.getAll();
     observable.subscribe( data => {
-      for (let i = data['posts'].length-1; i > 0; i--){
+      var tempCards = data['posts']
+      for (let i = tempCards.length-1; i > 0; i--){
         let j = Math.floor(Math.random() * (i + 1));
-        let temp = data['posts'][i];
-        data['posts'][i] = data['posts'][j];
-        data['posts'][j] = temp;
+        let temp = tempCards[i];
+        tempCards[i] = tempCards[j];
+        tempCards[j] = temp;
       }
-      this.cards = data['posts'];
+      this.cards = tempCards;
       console.log(data);
     });
   }

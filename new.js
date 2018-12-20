@@ -12,7 +12,7 @@ import * as $ from 'jquery';
 export class DashboardComponent implements OnInit {
   title = "scroll";
   add_post = false;
-  user: any;
+
   errors = {};
 
   constructor(
@@ -49,19 +49,9 @@ export class DashboardComponent implements OnInit {
     observable.subscribe(data => {
       if(data['status'] == "not ok"){
         this.errors = data['errors']['errors'];
-        this._router.navigate(['/']);
       } else {
         this.user = data["user"]
-      }
-    });
-  }
-  logout(){
-    let observable = this._userService.signOff();
-    observable.subscribe(data => {
-      if(data['status'] == "not ok"){
-        this.errors = data['errors']['errors'];
-      } else {
-        this._router.navigate(['/']);
+        // this._router.navigate(['/dashboard']);
       }
     });
   }

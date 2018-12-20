@@ -65,6 +65,7 @@ class Users {
 
   getUserById(req,res){
     if(req.session.logged_in != true){
+      console.log("this is session from getUserById", req.session)
       res.json({"status": "not ok", "errors": {"errors": {"not_logged_in": {"message": "Please login"}}}});
     } else {
       User.findById(req.session.user_id, function(err, data){
@@ -73,7 +74,11 @@ class Users {
     }
   }
 
-
+  logout(req,res){
+    req.session.destroy();
+    console.log("User logged out. Clearing session and redirecting to index.", req.session)
+    res.json({"status": "ok"});
+  }
 
 
   getAll(req, res){

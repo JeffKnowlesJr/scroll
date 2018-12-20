@@ -1,3 +1,105 @@
-<p>
-  dashboard works!
-</p>
+<!---------------Navigation Bar-------------->
+<div class="nav_bar">
+
+    <div class="head_text">
+      <h1><i class="fas fa-scroll scroll_main"></i>{{title}}</h1>
+    </div>
+
+    <!-- login/registration -->
+    <div class="login_register">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active"><i class="fas fa-home"></i></a></li>
+        <li><a routerLink="/home" routerLinkActive="active"><i class="far fa-compass"></i></a></li>
+        <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-comments"></i></a></li>
+        <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-cog"></i></a></li>
+        <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-power-off"></i></a></li>
+      </ul>
+    </div>
+
+    <!-- search -->
+    <div class="search">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search Scroll">
+
+    </div>
+</div>
+
+
+  <!---------------Post Dash -------------->
+
+  <div class="main_dash">
+      <div class="blog_contain">
+
+    <!-- card one -->
+    <div class="blog_card">
+
+      <div class="card_head">
+        <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
+        <h3>SkiesTheLimit <span>(22min ago)</span></h3>
+        <img class="img" src="../assets/img/travel.jpg" alt="">
+      </div>
+
+      <div class="card_contents">
+        <h2>Sailing in Greece</h2>
+        <p>I can't believe how amazing this weekend has been. Good food, wine, and friends to share this incredible journey with. I can't wait to visit again...</p>
+      </div>
+
+      <div class="card_footer">
+
+          <i class="fas fa-scroll"></i>
+          <p>915</p>
+
+          <i class="far fa-comment-dots"></i>
+
+          <i class="fa fa-retweet" aria-hidden="true"></i>
+
+          <i class="fa fa-heart" aria-hidden="true"></i>
+      </div>
+    </div>
+
+      <!-- card three -->
+      <div class="blog_card">
+        <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
+        <h3>Art-ifacts <span>(2 days ago)</span></h3>
+        <div class="card_img">
+          <img class="gif" src="../assets/img/fall.jpg" alt="">
+        </div>
+
+        <div class="card_footer">
+
+            <i class="fas fa-scroll"></i>
+            <p>12,300</p>
+
+            <i class="far fa-comment-dots"></i>
+
+            <i class="fa fa-retweet" aria-hidden="true"></i>
+
+            <i class="fa fa-heart" aria-hidden="true"></i>
+        </div>
+
+      </div>
+
+      <!-- card two -->
+    <div class="blog_card">
+      <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
+      <h3>GhibliDearest <span>(2 hours ago)</span></h3>
+      <div class="card_img">
+        <img class="gif" src="../assets/img/kiki.gif" alt="">
+      </div>
+
+      <div class="card_footer">
+
+          <i class="fas fa-scroll"></i>
+          <p>2,011</p>
+
+          <i class="far fa-comment-dots"></i>
+
+          <i class="fa fa-retweet" aria-hidden="true"></i>
+
+          <i class="fa fa-heart" aria-hidden="true"></i>
+      </div>
+
+    </div>
+
+
+  </div>

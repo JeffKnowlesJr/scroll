@@ -15,11 +15,12 @@ export class RegisterComponent implements OnInit {
     "password": ''
   }
   errors = {};
-
+  
   constructor(
     private _userService: UserService, 
     private _router: Router
   ) { }
+
 
   ngOnInit() {
   }
@@ -32,6 +33,11 @@ export class RegisterComponent implements OnInit {
         this._router.navigate(['/dashboard']);
       }
     });
+  }
+
+  create_user() {
+    console.log(this.newUser);
+    this._router.navigate(['/dashboard']);
   }
 
 }

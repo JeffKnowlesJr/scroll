@@ -15,7 +15,7 @@ module.exports = function(app){
   app.get("/logout", Users.logout);
   //posts
   app.get("/posts", Posts.getAll);
-  app.post("/posts/:id", Posts.create);
+  app.post("/posts", Posts.create);
   app.put("/posts/:id", Posts.update);
   app.delete("/posts/:id", Posts.delete);
   //comments

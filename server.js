@@ -3,6 +3,7 @@ const express = require("express"),
           app = express(),
       db_name = "scroll",
       session = require('express-session'),
+      path = require('path'),
          port = 8888;
 
 app.use(bp.json());

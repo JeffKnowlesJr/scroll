@@ -14,12 +14,14 @@ export class UserService {
   createUser(user){
     return this._http.post('/users', user);
   }
-  // login
+  // process login
   getOne(user){
     return this._http.post(`/user`, user);
   }
-  getOneById(id){
-    return this._http.get(`/user`, id);
+
+  // gets user's data after login
+  getOneById(){
+    return this._http.get(`/user`);
   }
 
   updateOne(id, user){

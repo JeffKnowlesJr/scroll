@@ -9,9 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   title = "scroll";
-  // user = {
-  //   "_id": req.session.user_id
-  // }
+  user: any;
   errors = {};
 
   constructor(
@@ -20,18 +18,19 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.thisUser(id);
+    this.thisUser();
     console.log('made it to dashboard')
 
   }
-  // thisUser(){
-  //   let observable = this._userService.getOneById(session.user_id);
-  //   observable.subscribe(data => {
-  //     if(data['status'] == "not ok"){
-  //       this.errors = data['errors']['errors'];
-  //     } else {
-  //       this._router.navigate(['/dashboard']);
-  //     }
-  //   });
-  // }
+  thisUser(){
+    let observable = this._userService.getOneById();
+    observable.subscribe(data => {
+      if(data['status'] == "not ok"){
+        this.errors = data['errors']['errors'];
+      } else {
+        this.user = data["user"]
+        // this._router.navigate(['/dashboard']);
+      }
+    });
+  }
 }

@@ -183,13 +183,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 /* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
-/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
-/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
-/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+  
+/* harmony import */ var _upload_upload_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./upload/upload.module */ "./src/app/upload/upload.module.ts");
+/* harmony import */ var _home_home_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./home/home.component */ "./src/app/home/home.component.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _login_login_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./login/login.component */ "./src/app/login/login.component.ts");
+/* harmony import */ var _register_register_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./register/register.component */ "./src/app/register/register.component.ts");
+/* harmony import */ var _settings_settings_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./settings/settings.component */ "./src/app/settings/settings.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _post_post_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./post/post.component */ "./src/app/post/post.component.ts");
 /* harmony import */ var _random_random_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./random/random.component */ "./src/app/random/random.component.ts");
+
 
 
 
@@ -211,23 +215,26 @@ var AppModule = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
             declarations: [
                 _app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"],
-                _home_home_component__WEBPACK_IMPORTED_MODULE_7__["HomeComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_8__["DashboardComponent"],
-                _login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
-                _register_register_component__WEBPACK_IMPORTED_MODULE_10__["RegisterComponent"],
-                _settings_settings_component__WEBPACK_IMPORTED_MODULE_11__["SettingsComponent"],
+                _home_home_component__WEBPACK_IMPORTED_MODULE_8__["HomeComponent"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_9__["DashboardComponent"],
+                _login_login_component__WEBPACK_IMPORTED_MODULE_10__["LoginComponent"],
+                _register_register_component__WEBPACK_IMPORTED_MODULE_11__["RegisterComponent"],
+                _settings_settings_component__WEBPACK_IMPORTED_MODULE_12__["SettingsComponent"],
+                _post_post_component__WEBPACK_IMPORTED_MODULE_13__["PostComponent"],
                 _random_random_component__WEBPACK_IMPORTED_MODULE_13__["RandomComponent"]
+
+
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
                 _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
                 _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_12__["AppRoutingModule"],
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_13__["AppRoutingModule"],
+                _upload_upload_module__WEBPACK_IMPORTED_MODULE_7__["UploadModule"]
             ],
             providers: [_user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"]],
             // providers: [PostService],
             // providers: [CommentService],
-            // providers: [ChatService],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_6__["AppComponent"]]
         })
     ], AppModule);
@@ -256,7 +263,9 @@ module.exports = "\n/* <------- Navigation Bar Styling ------->*/\n\n.scroll_mai
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+
 module.exports = "<!---------------Navigation Bar-------------->\n<div class=\"nav_bar\">\n    <div class=\"head_text\">\n      <h1><i class=\"fas fa-scroll scroll_main\"></i>{{title}}</h1>\n    </div>\n\n    <!-- login/registration -->\n    <div class=\"login_register\">\n      <ul>\n        <li><a routerLink=\"/dashboard\" routerLinkActive=\"active\"><i class=\"fas fa-home\"></i></a></li>\n\n        <li><a routerLink=\"/random\" routerLinkActive=\"active\"><i class=\"far fa-compass\"></i></a></li>\n        <li><a routerLink=\"/signup\" routerLinkActive=\"active\"><i class=\"fas fa-comments\"></i></a></li>\n        <li><a routerLink=\"/signup\" routerLinkActive=\"active\"><i class=\"fas fa-cog\"></i></a></li>\n        <li><i class=\"fas fa-power-off\" (click)=\"logout()\"></i></li>\n      </ul>\n    </div>\n\n    <!-- search -->\n    <div class=\"search\">\n      <i class=\"fas fa-search\"></i>\n      <input type=\"text\" placeholder=\"Search Scroll\">\n\n    </div>\n</div>\n\n\n  <!---------------Post Dash -------------->\n\n  <div class=\"main_dash\">\n    <div class=\"add_post\">\n        <i *ngIf=\"!add_post\" (click)=\"add_post_clicked()\" class=\"fas fa-plus\"></i>\n        <i *ngIf=\"add_post\" (click)=\"add_post_clicked()\" class=\"fas fa-minus\"></i>\n    </div>\n    <p *ngIf=\"!add_post\" class=\"add_post_text\">Add a new post</p>\n\n    <div *ngIf=\"add_post\" id=\"post_form\">\n        <i class=\"fas fa-link\"></i>\n        <i class=\"fas fa-images\"></i>\n        <i class=\"fas fa-font\"></i>\n        <i class=\"fab fa-youtube\"></i>\n        <i class=\"fas fa-headphones\"></i>\n    </div>\n\n    <div class=\"blog_contain\">\n\n      <!-- card one -->\n      <div class=\"blog_card\">\n\n        <p>Hello {{user.username}}!</p>\n        <p>{{user | json}}</p>\n        <div class=\"card_head\">\n\n        <img class=\"post_profile_photo\" src=\"../assets/img/sky.jpg\" alt=\"\">\n        <h3>SkiesTheLimit <span>(22min ago)</span></h3>\n        <img class=\"img\" src=\"../assets/img/travel.jpg\" alt=\"\">\n      </div>\n\n      <div class=\"card_contents\">\n        <h2>Sailing in Greece</h2>\n        <p>I can't believe how amazing this weekend has been. Good food, wine, and friends to share this incredible journey with. I can't wait to visit again...</p>\n      </div>\n\n      <div class=\"card_footer\">\n\n          <i class=\"fas fa-scroll\"></i>\n          <p>915</p>\n\n          <i class=\"far fa-comment-dots\"></i>\n\n          <i class=\"fa fa-retweet\" aria-hidden=\"true\"></i>\n\n          <i class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n      </div>\n    </div>\n\n      <!-- card three -->\n      <div class=\"blog_card\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/sky.jpg\" alt=\"\">\n        <h3>Art-ifacts <span>(2 days ago)</span></h3>\n        <div class=\"card_img\">\n          <img class=\"gif\" src=\"../assets/img/fall.jpg\" alt=\"\">\n        </div>\n\n        <div class=\"card_footer\">\n\n            <i class=\"fas fa-scroll\"></i>\n            <p>12,300</p>\n\n            <i class=\"far fa-comment-dots\"></i>\n\n            <i class=\"fa fa-retweet\" aria-hidden=\"true\"></i>\n\n            <i class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n        </div>\n\n      </div>\n\n      <!-- card two -->\n    <div class=\"blog_card\">\n      <img class=\"post_profile_photo\" src=\"../assets/img/sky.jpg\" alt=\"\">\n      <h3>GhibliDearest <span>(2 hours ago)</span></h3>\n      <div class=\"card_img\">\n        <img class=\"gif\" src=\"../assets/img/kiki.gif\" alt=\"\">\n      </div>\n\n      <div class=\"card_footer\">\n\n          <i class=\"fas fa-scroll\"></i>\n          <p>2,011</p>\n\n          <i class=\"far fa-comment-dots\"></i>\n\n          <i class=\"fa fa-retweet\" aria-hidden=\"true\"></i>\n\n          <i class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n      </div>\n\n    </div>\n\n\n  </div>\n"
+
 
 /***/ }),
 
@@ -287,10 +296,12 @@ var DashboardComponent = /** @class */ (function () {
         this._router = _router;
         this.title = "scroll";
         this.add_post = false;
+        //add_postText = false;
+        // user: any;
         this.errors = {};
     }
     DashboardComponent.prototype.ngOnInit = function () {
-        this.thisUser();
+        // this.thisUser();
         console.log('made it to dashboard');
         jquery__WEBPACK_IMPORTED_MODULE_4__(document).ready(function () {
             // $("html, body").animate({ scrollTop: 0 }, "slow");
@@ -307,19 +318,17 @@ var DashboardComponent = /** @class */ (function () {
             });
         });
     };
-    DashboardComponent.prototype.thisUser = function () {
-        var _this = this;
-        var observable = this._userService.getOneById();
-        observable.subscribe(function (data) {
-            if (data['status'] == "not ok") {
-                _this.errors = data['errors']['errors'];
-                _this._router.navigate(['/']);
-            }
-            else {
-                _this.user = data["user"];
-            }
-        });
-    };
+    // thisUser(){
+    //   let observable = this._userService.getOneById();
+    //   observable.subscribe(data => {
+    //     if(data['status'] == "not ok"){
+    //       this.errors = data['errors']['errors'];
+    //       this._router.navigate(['/']);
+    //     } else {
+    //       this.user = data["user"]
+    //     }
+    //   });
+    // }
     DashboardComponent.prototype.logout = function () {
         var _this = this;
         var observable = this._userService.signOff();
@@ -446,7 +455,9 @@ var HomeComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+
 module.exports = "\n/* <------- Navigation Bar Styling ------->*/\nimg{\n  position: fixed;\n  top:-200px;\n  filter: blur(8px);\n  -webkit-filter: blur(4px);\n  filter: brightness(40%);\n}\n.nav_bar{\n  width:100%;\n  display: flex;\n  position: fixed;\n  margin-top: 20px;\n  z-index: 1;\n}\n.nav_bar ul {\n  position: fixed;\n  right:100px;\n}\n/*------->> Search */\n.fa-search{\n  color:white;\n  font-size: 18px;\n  padding-top: 12px;\n  padding-left: 20px;\n}\n.search{\n  position: relative;\n  left:100px;\n  background-color: rgba(0, 0, 0, 0.315);\n  border-radius: 10px;\n}\n.search input{\n  width:400px;\n  border:none;\n  height:40px;\n  font-size: 16px;\n  color:white;\n  font-weight: 100;\n  padding-left: 15px;\n  background-color: rgba(255, 255, 255, 0);\n}\n.search input:focus{\n  border:none;\n  outline: none;\n}\n::-webkit-input-placeholder { /* Chrome/Opera/Safari */\n  color:rgba(255, 255, 255, 0.884);\n}\n::-moz-placeholder { /* Firefox 19+ */\n  color:rgba(255, 255, 255, 0.884);\n}\n:-ms-input-placeholder { /* IE 10+ */\n  color:rgba(255, 255, 255, 0.884);\n}\n:-moz-placeholder { /* Firefox 18- */\n  color:rgba(255, 255, 255, 0.884);\n}\n/*------->> Login/Register */\n.nav_bar ul li{\n  width:150px;\n  height:40px;\n  border:1px solid rgb(255, 255, 255);\n  text-align: center;\n  display: inline-block;\n  padding-top: 6px;\n  border-radius: 4px;\n  margin:0 10px;\n  cursor: pointer;\n  transition: .5s;\n}\n.nav_bar ul li a{\n  text-decoration: none;\n  font-size: 18px;\n  text-align: center;\n  transition: .5s;\n}\n.about{\n  background-color: white !important;\n  border:none !important;\n  padding-top: 8px !important;\n  transition: .5s;\n}\n.about a {\n  color:hsl(184, 24%, 55%) !important;\n}\n.nav_bar ul li:hover{\n  background-color: white;\n}\n.nav_bar ul li:hover a {\n  color:hsl(184, 24%, 55%);\n}\n.about:hover {\n  background-color: rgb(92, 56, 109) !important;\n}\n/* <------- Header Styling ------->*/\n.page_head{\n  position: relative;\n  top:220px;\n  width:400px;\n  margin:auto;\n}\n.head_text{\n  height:400px;\n  margin:auto;\n  transition:.5s;\n}\n.page_head h1 {\n  font-size: 80px;\n  font-family: 'Nunito', sans-serif;\n  text-align: center;\n}\n.head_text{\n  width:90%;\n  margin:auto;\n}\n.page_head h4 {\n  margin-top:150px;\n  font-size: 40px;\n  font-family: 'Nunito', sans-serif;\n  text-align: center;\n}\n.scroll_main{\n  position: relative;\n  font-size: 60px;\n  padding-right: 20px;\n  top:30px;\n  color:white !important;\n}\n.login_input{\n  display:block;\n  width:100%;\n  border:2px solid rgb(233, 233, 233);\n  border-radius: 3px;\n  height:40px;\n  margin-top: 20px;\n  margin-bottom: 15px;\n  color: rgb(233, 233, 233) !important;\n  text-align: center;\n  font-size: 18px;\n  background-color: rgba(255, 255, 255, 0);\n  transition:.5s;\n}\n.login_input:hover{\n  background-color: rgba(255, 255, 255, 0.61);\n  color: rgb(29, 29, 29) !important;\n  border:2px solid rgba(255, 255, 255, 0.61);\n  border-radius: 3px;\n}\n.login_input:hover::-webkit-input-placeholder { /* Chrome/Opera/Safari */\n  color: rgb(65, 65, 65) !important;\n  font-weight: bold;\n}\n::-webkit-input-placeholder { /* Chrome/Opera/Safari */\n  color: rgb(233, 233, 233) !important;\n  transition:.5s;\n}\n::-moz-placeholder { /* Firefox 19+ */\n  color: rgb(233, 233, 233) !important;\n  transition:.5s;\n}\n:-ms-input-placeholder { /* IE 10+ */\n  color: rgb(233, 233, 233) !important;\n  transition:.5s;\n}\n:-moz-placeholder { /* Firefox 18- */\n  color: rgb(233, 233, 233) !important;\n  transition:.5s;\n}\n.login_input:focus{\n  outline:none;\n  border:2px solid  rgba(255, 255, 255, 0.61);\n  border-radius: 3px;\n  font-weight: bold;\n}\n.submit {\n  display:block;\n  width:100%;\n  border-radius: 20px;\n  border:none;\n  height:40px;\n  margin-top: 60px;\n  margin-bottom: 15px;\n  color: rgb(233, 233, 233) !important;\n  text-align: center;\n  font-size: 18px;\n  background-color: rgba(61, 37, 71, 0.822);\n  transition:.5s;\n}\n.submit:hover{\n  background-color: rgb(92, 56, 109);\n}\n.error {\n  text-align: center;\n  background-color: rgba(0, 0, 0, 0.2);\n  border-radius: 3px;\n}\n\n\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiO0FBQ0EsNkNBQTZDO0FBQzdDO0VBQ0UsZ0JBQWdCO0VBQ2hCLFdBQVc7RUFDWCxrQkFBa0I7RUFDbEIsMEJBQTBCO0VBQzFCLHdCQUF3QjtDQUN6QjtBQUVEO0VBQ0UsV0FBVztFQUNYLGNBQWM7RUFDZCxnQkFBZ0I7RUFDaEIsaUJBQWlCO0VBQ2pCLFdBQVc7Q0FDWjtBQUVEO0VBQ0UsZ0JBQWdCO0VBQ2hCLFlBQVk7Q0FDYjtBQUNELHFCQUFxQjtBQUVyQjtFQUNFLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsa0JBQWtCO0VBQ2xCLG1CQUFtQjtDQUNwQjtBQUVEO0VBQ0UsbUJBQW1CO0VBQ25CLFdBQVc7RUFDWCx1Q0FBdUM7RUFDdkMsb0JBQW9CO0NBQ3JCO0FBQ0Q7RUFDRSxZQUFZO0VBQ1osWUFBWTtFQUNaLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixtQkFBbUI7RUFDbkIseUNBQXlDO0NBQzFDO0FBRUQ7RUFDRSxZQUFZO0VBQ1osY0FBYztDQUNmO0FBRUQsOEJBQThCLHlCQUF5QjtFQUNyRCxpQ0FBaUM7Q0FDbEM7QUFDRCxxQkFBcUIsaUJBQWlCO0VBQ3BDLGlDQUFpQztDQUNsQztBQUNELHlCQUF5QixZQUFZO0VBQ25DLGlDQUFpQztDQUNsQztBQUNELG9CQUFvQixpQkFBaUI7RUFDbkMsaUNBQWlDO0NBQ2xDO0FBRUQsNkJBQTZCO0FBQzdCO0VBQ0UsWUFBWTtFQUNaLFlBQVk7RUFDWixvQ0FBb0M7RUFDcEMsbUJBQW1CO0VBQ25CLHNCQUFzQjtFQUN0QixpQkFBaUI7RUFDakIsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCxnQkFBZ0I7RUFDaEIsZ0JBQWdCO0NBQ2pCO0FBQ0Q7RUFDRSxzQkFBc0I7RUFDdEIsZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQixnQkFBZ0I7Q0FDakI7QUFFRDtFQUNFLG1DQUFtQztFQUNuQyx1QkFBdUI7RUFDdkIsNEJBQTRCO0VBQzVCLGdCQUFnQjtDQUNqQjtBQUVEO0VBQ0Usb0NBQW9DO0NBQ3JDO0FBR0Q7RUFDRSx3QkFBd0I7Q0FDekI7QUFFRDtFQUNFLHlCQUF5QjtDQUMxQjtBQUVEO0VBQ0UsOENBQThDO0NBQy9DO0FBRUQscUNBQXFDO0FBRXJDO0VBQ0UsbUJBQW1CO0VBQ25CLFVBQVU7RUFDVixZQUFZO0VBQ1osWUFBWTtDQUNiO0FBRUQ7RUFDRSxhQUFhO0VBQ2IsWUFBWTtFQUNaLGVBQWU7Q0FDaEI7QUFFRDtFQUNFLGdCQUFnQjtFQUNoQixrQ0FBa0M7RUFDbEMsbUJBQW1CO0NBQ3BCO0FBRUQ7RUFDRSxVQUFVO0VBQ1YsWUFBWTtDQUNiO0FBRUQ7RUFDRSxpQkFBaUI7RUFDakIsZ0JBQWdCO0VBQ2hCLGtDQUFrQztFQUNsQyxtQkFBbUI7Q0FDcEI7QUFFRDtFQUNFLG1CQUFtQjtFQUNuQixnQkFBZ0I7RUFDaEIsb0JBQW9CO0VBQ3BCLFNBQVM7RUFDVCx1QkFBdUI7Q0FDeEI7QUFFRDtFQUNFLGNBQWM7RUFDZCxXQUFXO0VBQ1gsb0NBQW9DO0VBQ3BDLG1CQUFtQjtFQUNuQixZQUFZO0VBQ1osaUJBQWlCO0VBQ2pCLG9CQUFvQjtFQUNwQixxQ0FBcUM7RUFDckMsbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQix5Q0FBeUM7RUFDekMsZUFBZTtDQUNoQjtBQUVEO0VBQ0UsNENBQTRDO0VBQzVDLGtDQUFrQztFQUNsQywyQ0FBMkM7RUFDM0MsbUJBQW1CO0NBQ3BCO0FBRUQsZ0RBQWdELHlCQUF5QjtFQUN2RSxrQ0FBa0M7RUFDbEMsa0JBQWtCO0NBQ25CO0FBRUQsOEJBQThCLHlCQUF5QjtFQUNyRCxxQ0FBcUM7RUFDckMsZUFBZTtDQUNoQjtBQUNELHFCQUFxQixpQkFBaUI7RUFDcEMscUNBQXFDO0VBQ3JDLGVBQWU7Q0FDaEI7QUFDRCx5QkFBeUIsWUFBWTtFQUNuQyxxQ0FBcUM7RUFDckMsZUFBZTtDQUNoQjtBQUNELG9CQUFvQixpQkFBaUI7RUFDbkMscUNBQXFDO0VBQ3JDLGVBQWU7Q0FDaEI7QUFFRDtFQUNFLGFBQWE7RUFDYiw0Q0FBNEM7RUFDNUMsbUJBQW1CO0VBQ25CLGtCQUFrQjtDQUNuQjtBQUVEO0VBQ0UsY0FBYztFQUNkLFdBQVc7RUFDWCxvQkFBb0I7RUFDcEIsWUFBWTtFQUNaLFlBQVk7RUFDWixpQkFBaUI7RUFDakIsb0JBQW9CO0VBQ3BCLHFDQUFxQztFQUNyQyxtQkFBbUI7RUFDbkIsZ0JBQWdCO0VBQ2hCLDBDQUEwQztFQUMxQyxlQUFlO0NBQ2hCO0FBRUQ7RUFDRSxtQ0FBbUM7Q0FDcEM7QUFFRDtFQUNFLG1CQUFtQjtFQUNuQixxQ0FBcUM7RUFDckMsbUJBQW1CO0NBQ3BCIiwiZmlsZSI6InNyYy9hcHAvbG9naW4vbG9naW4uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIlxuLyogPC0tLS0tLS0gTmF2aWdhdGlvbiBCYXIgU3R5bGluZyAtLS0tLS0tPiovXG5pbWd7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgdG9wOi0yMDBweDtcbiAgZmlsdGVyOiBibHVyKDhweCk7XG4gIC13ZWJraXQtZmlsdGVyOiBibHVyKDRweCk7XG4gIGZpbHRlcjogYnJpZ2h0bmVzcyg0MCUpO1xufVxuXG4ubmF2X2JhcntcbiAgd2lkdGg6MTAwJTtcbiAgZGlzcGxheTogZmxleDtcbiAgcG9zaXRpb246IGZpeGVkO1xuICBtYXJnaW4tdG9wOiAyMHB4O1xuICB6LWluZGV4OiAxO1xufVxuXG4ubmF2X2JhciB1bCB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgcmlnaHQ6MTAwcHg7XG59XG4vKi0tLS0tLS0+PiBTZWFyY2ggKi9cblxuLmZhLXNlYXJjaHtcbiAgY29sb3I6d2hpdGU7XG4gIGZvbnQtc2l6ZTogMThweDtcbiAgcGFkZGluZy10b3A6IDEycHg7XG4gIHBhZGRpbmctbGVmdDogMjBweDtcbn1cblxuLnNlYXJjaHtcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBsZWZ0OjEwMHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuMzE1KTtcbiAgYm9yZGVyLXJhZGl1czogMTBweDtcbn1cbi5zZWFyY2ggaW5wdXR7XG4gIHdpZHRoOjQwMHB4O1xuICBib3JkZXI6bm9uZTtcbiAgaGVpZ2h0OjQwcHg7XG4gIGZvbnQtc2l6ZTogMTZweDtcbiAgY29sb3I6d2hpdGU7XG4gIGZvbnQtd2VpZ2h0OiAxMDA7XG4gIHBhZGRpbmctbGVmdDogMTVweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAwKTtcbn1cblxuLnNlYXJjaCBpbnB1dDpmb2N1c3tcbiAgYm9yZGVyOm5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG59XG5cbjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7IC8qIENocm9tZS9PcGVyYS9TYWZhcmkgKi9cbiAgY29sb3I6cmdiYSgyNTUsIDI1NSwgMjU1LCAwLjg4NCk7XG59XG46Oi1tb3otcGxhY2Vob2xkZXIgeyAvKiBGaXJlZm94IDE5KyAqL1xuICBjb2xvcjpyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuODg0KTtcbn1cbjotbXMtaW5wdXQtcGxhY2Vob2xkZXIgeyAvKiBJRSAxMCsgKi9cbiAgY29sb3I6cmdiYSgyNTUsIDI1NSwgMjU1LCAwLjg4NCk7XG59XG46LW1vei1wbGFjZWhvbGRlciB7IC8qIEZpcmVmb3ggMTgtICovXG4gIGNvbG9yOnJnYmEoMjU1LCAyNTUsIDI1NSwgMC44ODQpO1xufVxuXG4vKi0tLS0tLS0+PiBMb2dpbi9SZWdpc3RlciAqL1xuLm5hdl9iYXIgdWwgbGl7XG4gIHdpZHRoOjE1MHB4O1xuICBoZWlnaHQ6NDBweDtcbiAgYm9yZGVyOjFweCBzb2xpZCByZ2IoMjU1LCAyNTUsIDI1NSk7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xuICBwYWRkaW5nLXRvcDogNnB4O1xuICBib3JkZXItcmFkaXVzOiA0cHg7XG4gIG1hcmdpbjowIDEwcHg7XG4gIGN1cnNvcjogcG9pbnRlcjtcbiAgdHJhbnNpdGlvbjogLjVzO1xufVxuLm5hdl9iYXIgdWwgbGkgYXtcbiAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xuICBmb250LXNpemU6IDE4cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgdHJhbnNpdGlvbjogLjVzO1xufVxuXG4uYWJvdXR7XG4gIGJhY2tncm91bmQtY29sb3I6IHdoaXRlICFpbXBvcnRhbnQ7XG4gIGJvcmRlcjpub25lICFpbXBvcnRhbnQ7XG4gIHBhZGRpbmctdG9wOiA4cHggIWltcG9ydGFudDtcbiAgdHJhbnNpdGlvbjogLjVzO1xufVxuXG4uYWJvdXQgYSB7XG4gIGNvbG9yOmhzbCgxODQsIDI0JSwgNTUlKSAhaW1wb3J0YW50O1xufVxuXG5cbi5uYXZfYmFyIHVsIGxpOmhvdmVye1xuICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbn1cblxuLm5hdl9iYXIgdWwgbGk6aG92ZXIgYSB7XG4gIGNvbG9yOmhzbCgxODQsIDI0JSwgNTUlKTtcbn1cblxuLmFib3V0OmhvdmVyIHtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDkyLCA1NiwgMTA5KSAhaW1wb3J0YW50O1xufVxuXG4vKiA8LS0tLS0tLSBIZWFkZXIgU3R5bGluZyAtLS0tLS0tPiovXG5cbi5wYWdlX2hlYWR7XG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgdG9wOjIyMHB4O1xuICB3aWR0aDo0MDBweDtcbiAgbWFyZ2luOmF1dG87XG59XG5cbi5oZWFkX3RleHR7XG4gIGhlaWdodDo0MDBweDtcbiAgbWFyZ2luOmF1dG87XG4gIHRyYW5zaXRpb246LjVzO1xufVxuXG4ucGFnZV9oZWFkIGgxIHtcbiAgZm9udC1zaXplOiA4MHB4O1xuICBmb250LWZhbWlseTogJ051bml0bycsIHNhbnMtc2VyaWY7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbn1cblxuLmhlYWRfdGV4dHtcbiAgd2lkdGg6OTAlO1xuICBtYXJnaW46YXV0bztcbn1cblxuLnBhZ2VfaGVhZCBoNCB7XG4gIG1hcmdpbi10b3A6MTUwcHg7XG4gIGZvbnQtc2l6ZTogNDBweDtcbiAgZm9udC1mYW1pbHk6ICdOdW5pdG8nLCBzYW5zLXNlcmlmO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG59XG5cbi5zY3JvbGxfbWFpbntcbiAgcG9zaXRpb246IHJlbGF0aXZlO1xuICBmb250LXNpemU6IDYwcHg7XG4gIHBhZGRpbmctcmlnaHQ6IDIwcHg7XG4gIHRvcDozMHB4O1xuICBjb2xvcjp3aGl0ZSAhaW1wb3J0YW50O1xufVxuXG4ubG9naW5faW5wdXR7XG4gIGRpc3BsYXk6YmxvY2s7XG4gIHdpZHRoOjEwMCU7XG4gIGJvcmRlcjoycHggc29saWQgcmdiKDIzMywgMjMzLCAyMzMpO1xuICBib3JkZXItcmFkaXVzOiAzcHg7XG4gIGhlaWdodDo0MHB4O1xuICBtYXJnaW4tdG9wOiAyMHB4O1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xuICBjb2xvcjogcmdiKDIzMywgMjMzLCAyMzMpICFpbXBvcnRhbnQ7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDApO1xuICB0cmFuc2l0aW9uOi41cztcbn1cblxuLmxvZ2luX2lucHV0OmhvdmVye1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNjEpO1xuICBjb2xvcjogcmdiKDI5LCAyOSwgMjkpICFpbXBvcnRhbnQ7XG4gIGJvcmRlcjoycHggc29saWQgcmdiYSgyNTUsIDI1NSwgMjU1LCAwLjYxKTtcbiAgYm9yZGVyLXJhZGl1czogM3B4O1xufVxuXG4ubG9naW5faW5wdXQ6aG92ZXI6Oi13ZWJraXQtaW5wdXQtcGxhY2Vob2xkZXIgeyAvKiBDaHJvbWUvT3BlcmEvU2FmYXJpICovXG4gIGNvbG9yOiByZ2IoNjUsIDY1LCA2NSkgIWltcG9ydGFudDtcbiAgZm9udC13ZWlnaHQ6IGJvbGQ7XG59XG5cbjo6LXdlYmtpdC1pbnB1dC1wbGFjZWhvbGRlciB7IC8qIENocm9tZS9PcGVyYS9TYWZhcmkgKi9cbiAgY29sb3I6IHJnYigyMzMsIDIzMywgMjMzKSAhaW1wb3J0YW50O1xuICB0cmFuc2l0aW9uOi41cztcbn1cbjo6LW1vei1wbGFjZWhvbGRlciB7IC8qIEZpcmVmb3ggMTkrICovXG4gIGNvbG9yOiByZ2IoMjMzLCAyMzMsIDIzMykgIWltcG9ydGFudDtcbiAgdHJhbnNpdGlvbjouNXM7XG59XG46LW1zLWlucHV0LXBsYWNlaG9sZGVyIHsgLyogSUUgMTArICovXG4gIGNvbG9yOiByZ2IoMjMzLCAyMzMsIDIzMykgIWltcG9ydGFudDtcbiAgdHJhbnNpdGlvbjouNXM7XG59XG46LW1vei1wbGFjZWhvbGRlciB7IC8qIEZpcmVmb3ggMTgtICovXG4gIGNvbG9yOiByZ2IoMjMzLCAyMzMsIDIzMykgIWltcG9ydGFudDtcbiAgdHJhbnNpdGlvbjouNXM7XG59XG5cbi5sb2dpbl9pbnB1dDpmb2N1c3tcbiAgb3V0bGluZTpub25lO1xuICBib3JkZXI6MnB4IHNvbGlkICByZ2JhKDI1NSwgMjU1LCAyNTUsIDAuNjEpO1xuICBib3JkZXItcmFkaXVzOiAzcHg7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuXG4uc3VibWl0IHtcbiAgZGlzcGxheTpibG9jaztcbiAgd2lkdGg6MTAwJTtcbiAgYm9yZGVyLXJhZGl1czogMjBweDtcbiAgYm9yZGVyOm5vbmU7XG4gIGhlaWdodDo0MHB4O1xuICBtYXJnaW4tdG9wOiA2MHB4O1xuICBtYXJnaW4tYm90dG9tOiAxNXB4O1xuICBjb2xvcjogcmdiKDIzMywgMjMzLCAyMzMpICFpbXBvcnRhbnQ7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgZm9udC1zaXplOiAxOHB4O1xuICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDYxLCAzNywgNzEsIDAuODIyKTtcbiAgdHJhbnNpdGlvbjouNXM7XG59XG5cbi5zdWJtaXQ6aG92ZXJ7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYig5MiwgNTYsIDEwOSk7XG59XG5cbi5lcnJvciB7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgwLCAwLCAwLCAwLjIpO1xuICBib3JkZXItcmFkaXVzOiAzcHg7XG59XG5cblxuIl19 */"
+
 
 /***/ }),
 
@@ -568,6 +579,7 @@ var PostService = /** @class */ (function () {
 
 /***/ }),
 
+
 /***/ "./src/app/random/random.component.css":
 /*!*********************************************!*\
   !*** ./src/app/random/random.component.css ***!
@@ -595,18 +607,54 @@ module.exports = "<!---------------Navigation Bar-------------->\n<div class=\"n
   !*** ./src/app/random/random.component.ts ***!
   \********************************************/
 /*! exports provided: RandomComponent */
+
+/***/ "./src/app/post/post.component.css":
+/*!*****************************************!*\
+  !*** ./src/app/post/post.component.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "input{\r\n    color: black;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9zdC9wb3N0LmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxhQUFhO0NBQ2hCIiwiZmlsZSI6InNyYy9hcHAvcG9zdC9wb3N0LmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJpbnB1dHtcclxuICAgIGNvbG9yOiBibGFjaztcclxufSJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/post/post.component.html":
+/*!******************************************!*\
+  !*** ./src/app/post/post.component.html ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"AddPost\">\n  <form (submit)=\"create()\">\n    <div class=\"form-group\">\n      <label for=\"Title\">Title: </label>\n      <input type=\"text\" name=\"post.title\" [(ngModel)]=\"post.title\" class=\"form-control\" placeholder=\"Post Name\">\n      <small *ngIf=\"errors.title\" class=\"form-text text-muted\">{{errors.title.message}}</small>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"Content\">Contents: </label>\n      <textarea name=\"post.contents\" [(ngModel)]=\"post.contents\" placeholder=\"Style\" rows=\"8\" cols=\"80\"></textarea>\n      <small *ngIf=\"errors.contents\" class=\"form-text text-muted\">{{errors.content.message}}</small>\n    </div>\n    <input type=\"submit\" value=\"Add a Post\" />\n    <a [routerLink]=\"['/dashboard']\"><input type=\"submit\" value=\"Cancel\" /></a> \n  </form>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/post/post.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/post/post.component.ts ***!
+  \****************************************/
+/*! exports provided: PostComponent */
+
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RandomComponent", function() { return RandomComponent; });
+
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostComponent", function() { return PostComponent; });
+
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../post.service */ "./src/app/post.service.ts");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_5__);
+
+
 
 
 
@@ -673,6 +721,68 @@ var RandomComponent = /** @class */ (function () {
             _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], RandomComponent);
     return RandomComponent;
+
+var PostComponent = /** @class */ (function () {
+    function PostComponent(_postService, _userService, _router) {
+        this._postService = _postService;
+        this._userService = _userService;
+        this._router = _router;
+        this.post = {
+            "title": "",
+            "contents": "",
+            "creator_id": "",
+            "creator_name": ""
+        };
+        this.errors = {};
+    }
+    PostComponent.prototype.ngOnInit = function () {
+        this.thisUser();
+        console.log(this.user);
+    };
+    PostComponent.prototype.create = function () {
+        var _this = this;
+        console.log("CREATE EXECUTED");
+        var observable = this._postService.createOne(this.post);
+        observable.subscribe(function (data) {
+            console.log(data);
+            if (data['status'] == 'not ok') {
+                _this.errors = data['errors']['errors'];
+            }
+            else {
+                _this._router.navigate(['/dashboard']);
+            }
+        });
+    };
+    PostComponent.prototype.thisUser = function () {
+        var _this = this;
+        var observable = this._userService.getOneById();
+        observable.subscribe(function (data) {
+            if (data['status'] == "not ok") {
+                _this.errors = data['errors']['errors'];
+                _this._router.navigate(['/']);
+            }
+            else {
+                _this.user = data["user"];
+                console.log(_this.user);
+                _this.post = {
+                    "title": "",
+                    "contents": "",
+                    "creator_id": _this.user._id,
+                    "creator_name": _this.user.username
+                };
+            }
+        });
+    };
+    PostComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-post',
+            template: __webpack_require__(/*! ./post.component.html */ "./src/app/post/post.component.html"),
+            styles: [__webpack_require__(/*! ./post.component.css */ "./src/app/post/post.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_post_service__WEBPACK_IMPORTED_MODULE_2__["PostService"], _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], PostComponent);
+    return PostComponent;
+
 }());
 
 
@@ -817,6 +927,308 @@ var SettingsComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/upload/dialog/dialog.component.css":
+/*!****************************************************!*\
+  !*** ./src/app/upload/dialog/dialog.component.css ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".add-files-btn {\r\n  float: right;\r\n}\r\n\r\n:host {\r\n  height: 100%;\r\n  display: flex;\r\n  flex: 1;\r\n  flex-direction: column;\r\n}\r\n\r\n.actions {\r\n  justify-content: flex-end;\r\n}\r\n\r\n.container {\r\n  height: 100%;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXBsb2FkL2RpYWxvZy9kaWFsb2cuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGFBQWE7Q0FDZDs7QUFFRDtFQUNFLGFBQWE7RUFDYixjQUFjO0VBQ2QsUUFBUTtFQUNSLHVCQUF1QjtDQUN4Qjs7QUFFRDtFQUNFLDBCQUEwQjtDQUMzQjs7QUFFRDtFQUNFLGFBQWE7Q0FDZCIsImZpbGUiOiJzcmMvYXBwL3VwbG9hZC9kaWFsb2cvZGlhbG9nLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWRkLWZpbGVzLWJ0biB7XHJcbiAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcblxyXG46aG9zdCB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleDogMTtcclxuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59XHJcblxyXG4uYWN0aW9ucyB7XHJcbiAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcclxufVxyXG5cclxuLmNvbnRhaW5lciB7XHJcbiAgaGVpZ2h0OiAxMDAlO1xyXG59XHJcbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/upload/dialog/dialog.component.html":
+/*!*****************************************************!*\
+  !*** ./src/app/upload/dialog/dialog.component.html ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<input type=\"file\" #file style=\"display: none\" (change)=\"onFilesAdded()\" multiple />\n<div class=\"container\" fxLayout=\"column\" fxLayoutAlign=\"space-evenly stretch\">\n  <h1 mat-dialog-title>Upload Files</h1>\n  <div>\n    <button [disabled]=\"uploading || uploadSuccessful\" mat-raised-button color=\"primary\" class=\"add-files-btn\" (click)=\"addFiles()\">\n      Add Files\n    </button>\n  </div>\n\n  <!-- This is the content of the dialog, containing a list of the files to upload -->\n  <mat-dialog-content fxFlex>\n    <mat-list>\n      <mat-list-item *ngFor=\"let file of files\">\n        <h4 mat-line>{{file.name}}</h4>\n        <mat-progress-bar *ngIf=\"progress\" mode=\"determinate\" [value]=\"progress[file.name].progress | async\"></mat-progress-bar>\n      </mat-list-item>\n    </mat-list>\n  </mat-dialog-content>\n\n  <!-- This are the actions of the dialog, containing the primary and the cancel button-->\n  <mat-dialog-actions class=\"actions\">\n    <button *ngIf=\"showCancelButton\" mat-button mat-dialog-close>Cancel</button>\n    <button mat-raised-button color=\"primary\" [disabled]=\"!canBeClosed\" (click)=\"closeDialog()\">{{primaryButtonText}}</button>\n  </mat-dialog-actions>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/upload/dialog/dialog.component.ts":
+/*!***************************************************!*\
+  !*** ./src/app/upload/dialog/dialog.component.ts ***!
+  \***************************************************/
+/*! exports provided: DialogComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DialogComponent", function() { return DialogComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _upload_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../upload.service */ "./src/app/upload/upload.service.ts");
+/* harmony import */ var rxjs_observable_forkJoin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/observable/forkJoin */ "./node_modules/rxjs-compat/_esm5/observable/forkJoin.js");
+
+
+
+
+
+var DialogComponent = /** @class */ (function () {
+    function DialogComponent(dialogRef, uploadService) {
+        this.dialogRef = dialogRef;
+        this.uploadService = uploadService;
+        this.files = new Set();
+        this.canBeClosed = true;
+        this.primaryButtonText = 'Upload';
+        this.showCancelButton = true;
+        this.uploading = false;
+        this.uploadSuccessful = false;
+    }
+    DialogComponent.prototype.addFiles = function () {
+        this.file.nativeElement.click();
+    };
+    DialogComponent.prototype.onFilesAdded = function () {
+        var files = this.file.nativeElement.files;
+        for (var key in files) {
+            if (!isNaN(parseInt(key))) {
+                this.files.add(files[key]);
+            }
+        }
+    };
+    DialogComponent.prototype.closeDialog = function () {
+        var _this = this;
+        // if everything was uploaded already, just close the dialog
+        if (this.uploadSuccessful) {
+            return this.dialogRef.close();
+        }
+        // set the component state to "uploading"
+        this.uploading = true;
+        // start the upload and save the progress map
+        this.progress = this.uploadService.upload(this.files);
+        // convert the progress map into an array
+        var allProgressObservables = [];
+        for (var key in this.progress) {
+            allProgressObservables.push(this.progress[key].progress);
+        }
+        // Adjust the state variables
+        // The OK-button should have the text "Finish" now
+        this.primaryButtonText = 'Finish';
+        // The dialog should not be closed while uploading
+        this.canBeClosed = false;
+        this.dialogRef.disableClose = true;
+        // Hide the cancel-button
+        this.showCancelButton = false;
+        // When all progress-observables are completed...
+        Object(rxjs_observable_forkJoin__WEBPACK_IMPORTED_MODULE_4__["forkJoin"])(allProgressObservables).subscribe(function (end) {
+            // ... the dialog can be closed again...
+            _this.canBeClosed = true;
+            _this.dialogRef.disableClose = false;
+            // ... the upload was successful...
+            _this.uploadSuccessful = true;
+            // ... and the component is no longer uploading
+            _this.uploading = false;
+        });
+    };
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])('file'),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", Object)
+    ], DialogComponent.prototype, "file", void 0);
+    DialogComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-dialog',
+            template: __webpack_require__(/*! ./dialog.component.html */ "./src/app/upload/dialog/dialog.component.html"),
+            styles: [__webpack_require__(/*! ./dialog.component.css */ "./src/app/upload/dialog/dialog.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialogRef"], _upload_service__WEBPACK_IMPORTED_MODULE_3__["UploadService"]])
+    ], DialogComponent);
+    return DialogComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/upload/upload.component.css":
+/*!*********************************************!*\
+  !*** ./src/app/upload/upload.component.css ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3VwbG9hZC91cGxvYWQuY29tcG9uZW50LmNzcyJ9 */"
+
+/***/ }),
+
+/***/ "./src/app/upload/upload.component.html":
+/*!**********************************************!*\
+  !*** ./src/app/upload/upload.component.html ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<button mat-raised-button (click)=\"openUploadDialog()\">Upload</button>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/upload/upload.component.ts":
+/*!********************************************!*\
+  !*** ./src/app/upload/upload.component.ts ***!
+  \********************************************/
+/*! exports provided: UploadComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadComponent", function() { return UploadComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./dialog/dialog.component */ "./src/app/upload/dialog/dialog.component.ts");
+/* harmony import */ var _upload_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./upload.service */ "./src/app/upload/upload.service.ts");
+
+
+
+
+
+var UploadComponent = /** @class */ (function () {
+    function UploadComponent(dialog, uploadService) {
+        this.dialog = dialog;
+        this.uploadService = uploadService;
+    }
+    UploadComponent.prototype.openUploadDialog = function () {
+        var dialogRef = this.dialog.open(_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_3__["DialogComponent"], { width: '50%', height: '50%' });
+    };
+    UploadComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-upload',
+            template: __webpack_require__(/*! ./upload.component.html */ "./src/app/upload/upload.component.html"),
+            styles: [__webpack_require__(/*! ./upload.component.css */ "./src/app/upload/upload.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_material__WEBPACK_IMPORTED_MODULE_2__["MatDialog"], _upload_service__WEBPACK_IMPORTED_MODULE_4__["UploadService"]])
+    ], UploadComponent);
+    return UploadComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/upload/upload.module.ts":
+/*!*****************************************!*\
+  !*** ./src/app/upload/upload.module.ts ***!
+  \*****************************************/
+/*! exports provided: UploadModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadModule", function() { return UploadModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _upload_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./upload.component */ "./src/app/upload/upload.component.ts");
+/* harmony import */ var _angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/material */ "./node_modules/@angular/material/esm5/material.es5.js");
+/* harmony import */ var _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./dialog/dialog.component */ "./src/app/upload/dialog/dialog.component.ts");
+/* harmony import */ var _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @angular/platform-browser/animations */ "./node_modules/@angular/platform-browser/fesm5/animations.js");
+/* harmony import */ var _angular_flex_layout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @angular/flex-layout */ "./node_modules/@angular/flex-layout/esm5/flex-layout.es5.js");
+/* harmony import */ var _upload_service__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./upload.service */ "./src/app/upload/upload.service.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+
+
+
+
+
+
+
+var UploadModule = /** @class */ (function () {
+    function UploadModule() {
+    }
+    UploadModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+            imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatDialogModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatListModule"], _angular_flex_layout__WEBPACK_IMPORTED_MODULE_7__["FlexLayoutModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_6__["BrowserAnimationsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_4__["MatProgressBarModule"]],
+            declarations: [_upload_component__WEBPACK_IMPORTED_MODULE_3__["UploadComponent"], _dialog_dialog_component__WEBPACK_IMPORTED_MODULE_5__["DialogComponent"]],
+            exports: [_upload_component__WEBPACK_IMPORTED_MODULE_3__["UploadComponent"]],
+            entryComponents: [_dialog_dialog_component__WEBPACK_IMPORTED_MODULE_5__["DialogComponent"]],
+            providers: [_upload_service__WEBPACK_IMPORTED_MODULE_8__["UploadService"]]
+        })
+    ], UploadModule);
+    return UploadModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/upload/upload.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/upload/upload.service.ts ***!
+  \******************************************/
+/*! exports provided: UploadService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadService", function() { return UploadService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs_Subject__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/Subject */ "./node_modules/rxjs-compat/_esm5/Subject.js");
+
+
+
+
+var url = 'http://localhost:8888/upload';
+var UploadService = /** @class */ (function () {
+    function UploadService(http) {
+        this.http = http;
+    }
+    UploadService.prototype.upload = function (files) {
+        var _this = this;
+        // this will be the our resulting map
+        var status = {};
+        files.forEach(function (file) {
+            // create a new multipart-form for every file
+            var formData = new FormData();
+            formData.append('file', file, file.name);
+            // create a http-post request and pass the form
+            // tell it to report the upload progress
+            var req = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpRequest"]('POST', url, formData, {
+                reportProgress: true
+            });
+            // create a new progress-subject for every file
+            var progress = new rxjs_Subject__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+            // send the http-request and subscribe for progress-updates
+            _this.http.request(req).subscribe(function (event) {
+                if (event.type === _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpEventType"].UploadProgress) {
+                    // calculate the progress percentage
+                    var percentDone = Math.round(100 * event.loaded / event.total);
+                    // pass the percentage into the progress-stream
+                    progress.next(percentDone);
+                }
+                else if (event instanceof _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpResponse"]) {
+                    // Close the progress-stream if we get an answer form the API
+                    // The upload is complete
+                    progress.complete();
+                }
+            });
+            // Save every progress-observable in a map of all observables
+            status[file.name] = {
+                progress: progress.asObservable()
+            };
+        });
+        // return the map of progress.observables
+        return status;
+    };
+    UploadService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])(),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], UploadService);
+    return UploadService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/user.service.ts":
 /*!*********************************!*\
   !*** ./src/app/user.service.ts ***!
@@ -934,7 +1346,8 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/aignaci1/Desktop/Coding Dojo/scroll/client/src/main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Kdodd\Desktop\Scroll\scroll\scroll\client\src\main.ts */"./src/main.ts");
+
 
 
 /***/ })

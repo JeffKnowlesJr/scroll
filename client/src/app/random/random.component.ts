@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { PostService } from '../post.service';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-random',
@@ -10,6 +12,7 @@ import * as $ from 'jquery';
   styleUrls: ['./random.component.css']
 })
 export class RandomComponent implements OnInit {
+
   title = "scroll";
   cards = [];
   errors = {};
@@ -60,6 +63,7 @@ export class RandomComponent implements OnInit {
         this._router.navigate(['/']);
       }
     });
+
   }
 
 }

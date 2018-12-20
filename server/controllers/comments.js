@@ -2,7 +2,6 @@ console.log("inside of comments.js");
 
 const mongoose = require("mongoose");
 const Comment = mongoose.model("Comment");
-const Chat = mongoose.model("Chat");
 
 let options = {
   new:true,
@@ -50,7 +49,6 @@ class Comments {
             });
           }
         });
-      });
       }
     });
   }
@@ -84,7 +82,6 @@ class Comments {
             });
           }
         });
-      });
       }
     });
   }

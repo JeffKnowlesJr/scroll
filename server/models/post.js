@@ -28,7 +28,7 @@ const PostSchema = new mongoose.Schema(
       type: String,
       required: [true, "Post must have a creator."]
     },
-    comments: [CommentSchema];
+    comments: [CommentSchema]
   },
   {timestamps: true}
 );

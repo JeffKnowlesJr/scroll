@@ -2,6 +2,7 @@ console.log("inside of routes.js");
 
 const Users = require("../controllers/users");
 const Posts = require("../controllers/posts");
+const Comments = require("../controllers/comments");
 
 module.exports = function(app){
   app.get("/users", Users.getAll);

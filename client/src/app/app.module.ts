@@ -29,13 +29,12 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    AppComponent
   ],
   providers: [UserService],
-  bootstrap: [AppComponent]
+
   // providers: [PostService],
   // providers: [CommentService],
   // providers: [ChatService],
-
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

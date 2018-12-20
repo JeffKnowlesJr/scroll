@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from './user.service';
-import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
 @Component({
@@ -19,39 +19,6 @@ export class AppComponent {
 
   ngOnInit(){
 
-    // JQuery Function Integrations
-    $(document).ready(function(){
-      // $("html, body").animate({ scrollTop: 0 }, "slow");
-
-      $('div.hidden').fadeIn(1500).removeClass('hidden');
-
-      $("#info_head_1").hide();
-      $(".icons").hide();
-
-      //--------->> Picture Functions
-      $('.arrow1').click(function(){
-        $("html, body").animate({ scrollTop: 910 }, "slower");
-
-        $("#info_head_1").fadeIn(1500, function(){});
-      });
-
-      //--------->> About Section Functions
-      $('.arrow2').click(function(){
-        var about = $(document.getElementById("about"));
-
-        $("html, body").animate({ scrollTop: 1990 }, "slower");
-
-        about.animate({fontSize: '50px'}, 1000);
-
-        $(".icons").fadeIn(3000, function(){});
-      });
-
-      $('.arrow3').click(function(){
-        $("html, body").animate({ scrollTop: 2905 }, "slower");
-        $('.arrow3').fadeOut("slow");
-      });
-
-    });
   }
 
   andGetUsers(){

@@ -26,7 +26,7 @@
 
 
   <!---------------Post Dash -------------->
-  
+
   <div class="main_dash">
     <div class="add_post">
         <i *ngIf="!add_post" (click)="add_post_clicked()" class="fas fa-plus"></i>
@@ -43,13 +43,13 @@
     </div>
 
     <div class="blog_contain">
-      <h1>Quick Check!</h1>
       
       <!-- card one -->
       <div class="blog_card">
         
         <!-- <p>Hello {{user.username}}!</p> -->
         <!-- <p>{{user | json}}</p> -->
+
         <div class="card_head">
 
         <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
@@ -119,5 +119,9 @@
 
     </div>
 
+
     <app-post></app-post>
+
+  <app-upload></app-upload>
+
   </div>

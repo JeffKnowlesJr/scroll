@@ -11,12 +11,13 @@ let options = {
 
 class Comments {
   create(req, res){
+    req.body.post_id = req.params.id;
     let comment = new Comment(req.body);
     comment.save(function(err){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{
-        Chat.findOneAndUpdate({_id: req.params.id}, {$push: {comments: comment}}, options, function(err, data){
+        Post.findOneAndUpdate({_id: req.params.id}, {$push: {comments: comment}}, options, function(err, data){
           if(err){
             res.json({"status": "not ok", "errors": err});
           }else{
@@ -27,24 +28,52 @@ class Comments {
     });
   }
   update(req, res) {
-    Comment.findOne({_id: req.params.id}, function(err, data){
+    Comment.findOneAndUpdate(
+      {_id: req.params.id}, {$set: {comment: req.body.comment}}, options, function(err, comment){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{
-        let commentId = req.params.id;
-        Comment.findOneAndUpdate({_id: req.params.id}, {$set: {name: req.body.title, rating: req.body.contents}}, options, function(err, data){
+        let updatedComment = comment;
+        Post.findOne({_id: updatedComment.post_id}, function(err, post){
           if(err){
             res.json({"status": "not ok", "errors": err});
           }else{
-            let updatedComment = data;
-            Chat.findOne({_id: req.params.chatid}, function(err, data){
+            let commentArray = post.comments;
+            let commentIndex = commentArray.findIndex(i => i._id == updatedComment._id);
+            commentArray[commentIndex] = updatedComment;
+            Post.findOneAndUpdate({_id: updatedComment.post_id}, {$set: {comments: commentArray}}, options, function(err, data){
               if(err){
                 res.json({"status": "not ok", "errors": err});
               }else{
-                let commentArray = data.comments;
-                let commentIndex = commentArray.findIndex(i => i._id == commentId);
-                commentArray[commentIndex] = updatedComment;
-                Chat.findOneAndUpdate({_id: req.params.chatid}, {$set: {comments: commentArray}}, options, function(err, data){
+                res.json({"status": "ok", "data": data});
+              }
+            });
+          }
+        });
+      });
+      }
+    });
+  }
+  delete(req, res) {
+    Comment.findOne({_id: req.params.id}, function(err, comment){
+      if(err){
+        res.json({"status": "not ok", "errors": err});
+      }else{
+        Post.findOne({_id: updatedComment.post_id}, function(err, post){
+          if(err){
+            res.json({"status": "not ok", "errors": err});
+          }else{
+            let commentArray = post.comments;
+            let commentIndex = commentArray.findIndex(i => i._id == updatedComment._id);
+            for (let i = commentIndex; i < commentArray.length - 1; i++){
+              commentArray[i] = commentArray[i+1];
+            }
+            commentArray.length = commentArray.length - 1;
+            Post.findOneAndUpdate({_id: updatedComment.post_id}, {$set: {comments: commentArray}}, options, function(err, data){
+              if(err){
+                res.json({"status": "not ok", "errors": err});
+              }else{
+                Comment.findOneAndRemove({_id: req.params.id}, function(err, comment){
                   if(err){
                     res.json({"status": "not ok", "errors": err});
                   }else{
@@ -55,15 +84,7 @@ class Comments {
             });
           }
         });
-      }
-    });
-  }
-  delete(req, res) {
-    Comment.findByIdAndRemove({_id: req.params.id}, function(err, data){
-      if(err){
-        res.json({"status": "not ok", "errors": err});
-      }else{
-        res.json({"status": "ok", "data": data});
+      });
       }
     });
   }

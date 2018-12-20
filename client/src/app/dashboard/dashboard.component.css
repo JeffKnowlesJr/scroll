@@ -44,7 +44,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
   z-index: 1;
-  background-color: hsl(184, 24%, 55%);
+  background-color: hsl(184, 18%, 30%);
 }
 
 .nav_bar ul {
@@ -126,13 +126,84 @@
   color:hsl(184, 24%, 55%) !important;
 }
 
-.nav_bar ul li:hover{
-  background-color: rgba(255, 255, 255, 0.219);
-}
-
 .nav_bar ul li:hover i {
   color:rgb(92, 56, 109);
 }
+
+
+/* <------- Add_post ------->*/
+.add_post{
+  display: inline-block;
+  width: 52px;
+  margin:auto 20px;
+  height:60px;
+  transition: .5s;
+}
+
+.add_post i{
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.322);
+  transition: .5s;
+}
+
+.add_post i:hover{
+  color:rgb(219, 219, 219);
+}
+
+.add_post_text {
+  margin:auto;
+  padding:15px 0 0 24px;
+  display: inline-block;
+  position:relative;
+  color:white;
+  font-size: 20px;
+  visibility: hidden;
+}
+
+#post_form{
+  display:block;
+  margin:20px auto;
+  width:460px;
+  min-height:100px;
+  border-radius: 6px;
+  background-color: white;
+}
+
+#post_form i{
+  font-size: 50px;
+  width:80px;
+  margin-top: 10px;
+  margin:10px 6px;
+  height:80px;
+  padding:16px 14px;
+  transition: .5s;
+}
+
+#post_form i:hover{
+  color: hsl(130, 36%, 50%);
+}
+
+.fa-link{
+  color:rgb(57, 76, 116);
+}
+
+.fa-images{
+  color:rgb(50, 100, 50);
+}
+
+.fa-font{
+  color:rgb(34, 34, 34);
+}
+
+.fa-youtube{
+  color:rgb(185, 42, 42);
+}
+
+.fa-headphones{
+  color:rgb(79, 49, 99);
+}
+
+/* <------- Blog Styling ------->*/
 
 .main_dash{
   position: relative;
@@ -141,11 +212,9 @@
   margin:100px auto;
   min-height: 760px;
   border-radius: 6px;
-  padding:20px 0;
+  padding:20px 0 60px 0;
   background-color: rgba(0, 0, 0, 0.171);
 }
-
-/* <------- Page Info 2 Styling ------->*/
 
 .blog_contain{
   width:100%;

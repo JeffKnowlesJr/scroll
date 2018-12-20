@@ -1,7 +1,7 @@
 const express = require("express"),
            bp = require("body-parser"),
           app = express(),
-      db_name = "userbot",
+      db_name = "scroll",
          port = 8888;
 
 app.use(bp.json());

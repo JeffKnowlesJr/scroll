@@ -1,6 +1,7 @@
 console.log("inside of chat.js");
 
 const mongoose = require("mongoose");
+const CommentSchema = require("./comment");
 
 const ChatSchema = new mongoose.Schema(
   {

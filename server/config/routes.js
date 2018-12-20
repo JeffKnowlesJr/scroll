@@ -8,7 +8,9 @@ module.exports = function(app){
   app.post("/users", Users.create);
   app.put("/users/:id", Users.update);
   app.delete("/users/:id", Users.delete);
+  app.get("/posts", Posts.getAll);
   app.post("/posts/:id", Posts.create);
-  app.put("/posts/:userid", Posts.update);
+  app.put("/posts/:id", Posts.update);
+  app.post("/posts/:id/:userid", Posts.subscribe);
   app.delete("/posts/:id", Posts.delete);
 }

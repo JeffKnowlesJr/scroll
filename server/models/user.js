@@ -1,8 +1,6 @@
 console.log("inside of user.js");
 
 const mongoose = require("mongoose");
-const PostSchema = require("./post");
-const ChatSchema = require("./chat");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -27,10 +25,11 @@ const UserSchema = new mongoose.Schema(
     //   maxlength: [255, "Password must be less than 255 characters."],
     //   Minlength: [8, "Password must be at least 8 characters"]
     // },
-    // User Model Attribute Posts Array
-    posts: [PostSchema],
-    // User Model Attribute Chats Array
-    chats: [ChatSchema]
+    email: {
+      type: String,
+      required: [true, "Email is required"],
+      maxlength: [255, "Email must be less than 255 characters."],
+    },
   },
   // Timestamps: createdAt updatedAt
   {timestamps: true}

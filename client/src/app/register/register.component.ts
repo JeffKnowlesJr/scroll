@@ -9,9 +9,19 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   title = "scroll";
 
-  constructor() { }
+  newUser = {
+    username:"",
+    email:"",
+    password:""
+  }
+  constructor(private _router: Router) { }
 
   ngOnInit() {
+  }
+
+  create_user() {
+    console.log(this.newUser);
+    this._router.navigate(['/dashboard']);
   }
 
 }

@@ -9,6 +9,7 @@
     <div class="login_register">
       <ul>
         <li><a routerLink="/" routerLinkActive="active"><i class="fas fa-home"></i></a></li>
+
         <li><a routerLink="/home" routerLinkActive="active"><i class="far fa-compass"></i></a></li>
         <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-comments"></i></a></li>
         <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-cog"></i></a></li>
@@ -28,7 +29,22 @@
   <!---------------Post Dash -------------->
 
   <div class="main_dash">
-      <div class="blog_contain">
+
+    <div class="add_post">
+        <i *ngIf="!add_post" (click)="add_post_clicked()" class="fas fa-plus"></i>
+        <i *ngIf="add_post" (click)="add_post_clicked()" class="fas fa-minus"></i>
+    </div>
+    <p *ngIf="!add_post" class="add_post_text">Add a new post</p>
+
+    <div *ngIf="add_post" id="post_form">
+        <i class="fas fa-link"></i>
+        <i class="fas fa-images"></i>
+        <i class="fas fa-font"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fas fa-headphones"></i>
+    </div>
+
+    <div class="blog_contain">
 
     <!-- card one -->
     <div class="blog_card">

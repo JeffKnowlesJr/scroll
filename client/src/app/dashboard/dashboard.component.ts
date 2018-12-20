@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,9 +10,6 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   title = "scroll";
-  // user = {
-  //   "_id": req.session.user_id
-  // }
   errors = {};
 
   constructor(
@@ -20,7 +18,7 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.thisUser(id);
+
     console.log('made it to dashboard')
 
   }
@@ -34,4 +32,32 @@ export class DashboardComponent implements OnInit {
   //     }
   //   });
   // }
+
+    $(document).ready(function(){
+      // $("html, body").animate({ scrollTop: 0 }, "slow");
+
+
+      // Add post
+      $('.fa-plus').mouseover(function() {
+        $('.add_post_text').css("visibility","visible");
+        $('.add_post_text').hide();
+        $('.add_post_text').fadeIn(400);
+      });
+
+      $('.fa-plus').mouseout(function() {
+        $('.add_post_text').fadeOut(400, function(){
+          $('.add_post_text').css("visibility","hidden");
+        });
+      });
+    });
+  }
+
+  add_post_clicked() {
+    if(this.add_post) {
+      this.add_post = false;
+    }
+    else{
+      this.add_post = true;
+    }
+  }
 }

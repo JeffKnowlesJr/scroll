@@ -35,9 +35,4 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  create_user() {
-    console.log(this.newUser);
-    this._router.navigate(['/dashboard']);
-  }
-
 }

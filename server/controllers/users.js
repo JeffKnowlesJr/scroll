@@ -29,7 +29,7 @@ class Users {
     });
   }
   update(req, res) {
-    User.findOneAndUpdate({_id: req.params.id}, {$set: {password: req.body.password}}, options, function(err, data){
+    User.findOneAndUpdate({_id: req.params.id}, {$set: {password: req.body.password, username: req.body.username}}, options, function(err, data){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{

@@ -1,6 +1,7 @@
 console.log("inside of post.js");
 
 const mongoose = require("mongoose");
+const UserSchema = require("./user");
 
 const PostSchema = new mongoose.Schema(
   {
@@ -17,9 +18,14 @@ const PostSchema = new mongoose.Schema(
       maxlength: [2000, "Contents must be less than 2000 characters."],
       minlength: [5, "Contents must be at least 5 characters"]
     },
+    users: [UserSchema],
     // Post Model Attribute Chat_id
     chat_id: {
       type: String
+    },
+    creator_id: {
+      type: String,
+      required: [true, "Post must be created by a user."]
     }
   },
   {timestamps: true}

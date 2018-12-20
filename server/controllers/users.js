@@ -8,6 +8,8 @@ let options = {
   runValidators:true
 }
 
+// Basic CRUD
+
 class Users {
   create(req, res){
     let user = new User(req.body);
@@ -29,7 +31,7 @@ class Users {
     });
   }
   update(req, res) {
-    User.findOneAndUpdate({_id: req.params.id}, {$set: {password: req.body.password, username: req.body.username}}, options, function(err, data){
+    User.findOneAndUpdate({_id: req.params.id}, {$set: {password: req.body.password, username: req.body.username, email: req.body.email}}, options, function(err, user){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{

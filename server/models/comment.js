@@ -1,6 +1,7 @@
 console.log("inside of comment.js");
 
 const mongoose = require("mongoose");
+const UserSchema = require("./user");
 
 const CommentSchema = new mongoose.Schema(
   {
@@ -10,9 +11,15 @@ const CommentSchema = new mongoose.Schema(
       required: [true, "Comment is required."],
       maxlength: [400, "Comment must be less than 400 characters."]
     },
-    // Comment Model Attribute User_id
-    user_id: {
-      type: String
+    // Post Model Attribute Creator_id
+    creator_id: {
+      type: String,
+      required: [true, "Post must have a creator."]
+    },
+    // Post Model Attribute Creator_name
+    creator_name: {
+      type: String,
+      required: [true, "Post must have a creator."]
     }
   },
   {timestamps: true}

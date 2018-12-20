@@ -12,6 +12,17 @@ let options = {
 
 class Users {
   create(req, res){
+    User.findOne({email: req.body.email}, function(err, user){
+      if(user){
+        res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "This email already exists in the database"}}}});
+      }
+    })
+    User.findOne({username: req.body.username}, function(err, user){
+      if(user){
+        res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "This username already exists in the database"}}}});
+      }
+    })
+    
     let user = new User(req.body);
     user.save(function(err){
       if(err){

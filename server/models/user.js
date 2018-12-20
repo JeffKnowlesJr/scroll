@@ -29,6 +29,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: [true, "Email is required"],
       maxlength: [255, "Email must be less than 255 characters."],
+      match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Invalid email address'],
     },
   },
   // Timestamps: createdAt updatedAt

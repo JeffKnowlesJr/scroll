@@ -748,13 +748,14 @@ var RandomComponent = /** @class */ (function () {
         var _this = this;
         var observable = this._postService.getAll();
         observable.subscribe(function (data) {
-            for (var i = data['posts'].length - 1; i > 0; i--) {
+            var tempCards = data['posts'];
+            for (var i = tempCards.length - 1; i > 0; i--) {
                 var j = Math.floor(Math.random() * (i + 1));
-                var temp = data['posts'][i];
-                data['posts'][i] = data['posts'][j];
-                data['posts'][j] = temp;
+                var temp = tempCards[i];
+                tempCards[i] = tempCards[j];
+                tempCards[j] = temp;
             }
-            _this.cards = data['posts'];
+            _this.cards = tempCards;
             console.log(data);
         });
     };

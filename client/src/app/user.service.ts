@@ -24,6 +24,9 @@ export class UserService {
     return this._http.get(`/user`);
   }
 
+  signOff(){
+    return this._http.get('/logout');
+  }
   updateOne(id, user){
     return this._http.put(`/users/${id}`, user);
   }

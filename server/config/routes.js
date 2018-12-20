@@ -12,6 +12,7 @@ module.exports = function(app){
   app.get("/user", Users.getUserById);
   app.put("/users/:id", Users.update);
   app.delete("/users/:id", Users.delete);
+  app.get("/logout", Users.logout);
   //posts
   app.get("/posts", Posts.getAll);
   app.post("/posts/:id", Posts.create);

@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AppRoutingModule } from './app-routing.module';
+import { RandomComponent } from './random/random.component';
+import { PostComponent } from './post/post.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AppRoutingModule } from './app-routing.module';
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    SettingsComponent
+    SettingsComponent,
+    RandomComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

@@ -219,4 +219,8 @@ img{
   background-color: rgb(92, 56, 109);
 }
 
+.error {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
 

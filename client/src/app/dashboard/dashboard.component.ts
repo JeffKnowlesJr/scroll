@@ -8,49 +8,54 @@ import * as $ from 'jquery';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
   title = "scroll";
+  add_post = false;
+
   errors = {};
 
   constructor(
-    private _userService: UserService, 
+    private _userService: UserService,
     private _router: Router
   ) { }
 
   ngOnInit() {
 
+    this.thisUser();
+
     console.log('made it to dashboard')
-
-  }
-  // thisUser(){
-  //   let observable = this._userService.getOneById(session.user_id);
-  //   observable.subscribe(data => {
-  //     if(data['status'] == "not ok"){
-  //       this.errors = data['errors']['errors'];
-  //     } else {
-  //       this._router.navigate(['/dashboard']);
-  //     }
-  //   });
-  // }
-
-    $(document).ready(function(){
-      // $("html, body").animate({ scrollTop: 0 }, "slow");
+      $(document).ready(function(){
+        // $("html, body").animate({ scrollTop: 0 }, "slow");
 
 
-      // Add post
-      $('.fa-plus').mouseover(function() {
-        $('.add_post_text').css("visibility","visible");
-        $('.add_post_text').hide();
-        $('.add_post_text').fadeIn(400);
-      });
+        // Add post
+        $('.fa-plus').mouseover(function() {
+          $('.add_post_text').css("visibility","visible");
+          $('.add_post_text').hide();
+          $('.add_post_text').fadeIn(400);
+        });
 
-      $('.fa-plus').mouseout(function() {
-        $('.add_post_text').fadeOut(400, function(){
-          $('.add_post_text').css("visibility","hidden");
+        $('.fa-plus').mouseout(function() {
+          $('.add_post_text').fadeOut(400, function(){
+            $('.add_post_text').css("visibility","hidden");
+          });
         });
       });
+    }
+
+  thisUser(){
+    let observable = this._userService.getOneById();
+    observable.subscribe(data => {
+      if(data['status'] == "not ok"){
+        this.errors = data['errors']['errors'];
+      } else {
+        this.user = data["user"]
+        // this._router.navigate(['/dashboard']);
+      }
     });
   }
+  console.log('made it to dashboard');
 
   add_post_clicked() {
     if(this.add_post) {

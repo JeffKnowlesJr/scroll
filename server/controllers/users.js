@@ -30,7 +30,8 @@ class Users {
                 console.log('successful register')
                 req.session.user_id = user._id;
                 req.session.logged_in = true;
-                res.json({"status": "ok", "user": data});
+                console.log(req.session)
+                res.json({"status": "ok", "user": data, "session": req.session});
               }
             });
           }
@@ -61,6 +62,19 @@ class Users {
       }
     });
   }
+
+  getUserById(req,res){
+    if(req.session.logged_in != true){
+      res.json({"status": "not ok", "errors": {"errors": {"not_logged_in": {"message": "Please login"}}}});
+    } else {
+      User.findById(req.session.user_id, function(err, data){
+        res.json({"status": "ok", "user": data, "session": req.session});
+      })
+    }
+  }
+
+
+
 
   getAll(req, res){
     User.find({}, function(err, users){

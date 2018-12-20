@@ -1,6 +1,5 @@
 <!---------------Navigation Bar-------------->
 <div class="nav_bar">
-<p>Hello {{session | json}}</p>
     <div class="head_text">
       <h1><i class="fas fa-scroll scroll_main"></i>{{title}}</h1>
     </div>
@@ -27,9 +26,8 @@
 
 
   <!---------------Post Dash -------------->
-
+  
   <div class="main_dash">
-
     <div class="add_post">
         <i *ngIf="!add_post" (click)="add_post_clicked()" class="fas fa-plus"></i>
         <i *ngIf="add_post" (click)="add_post_clicked()" class="fas fa-minus"></i>
@@ -45,11 +43,14 @@
     </div>
 
     <div class="blog_contain">
+      
+      <!-- card one -->
+      <div class="blog_card">
+        
+        <p>Hello {{user.username}}!</p>
+        <p>{{user | json}}</p>
+        <div class="card_head">
 
-    <!-- card one -->
-    <div class="blog_card">
-
-      <div class="card_head">
         <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
         <h3>SkiesTheLimit <span>(22min ago)</span></h3>
         <img class="img" src="../assets/img/travel.jpg" alt="">

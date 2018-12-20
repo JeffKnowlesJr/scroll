@@ -25,4 +25,5 @@ export class PostService {
   deleteOne(id){
     return this._http.delete(`/posts/${id}`);
   }
+
 }

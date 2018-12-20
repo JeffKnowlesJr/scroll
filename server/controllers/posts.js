@@ -19,6 +19,7 @@ class Posts {
       }
     });
   }
+
   getAll(req, res){
     Post.find({}, function(err, posts){
       if(err){
@@ -28,6 +29,7 @@ class Posts {
       }
     });
   }
+  
   update(req, res) {
     console.log("log", req.params.id);
     Post.findOneAndUpdate({_id: req.params.id}, {$set: {title: req.body.title, contents: req.body.contents}}, options, function(err, data){

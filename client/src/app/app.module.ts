@@ -16,7 +16,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { AppRoutingModule } from './app-routing.module';
 import { RandomComponent } from './random/random.component';
 
+
 import { PostComponent } from './post/post.component';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { PostComponent } from './post/post.component';
     SettingsComponent,
     RandomComponent,
     PostComponent
+
   ],
   imports: [
     BrowserModule,

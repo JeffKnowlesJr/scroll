@@ -7,9 +7,9 @@
     <!-- login/registration -->
     <div class="login_register">
       <ul>
-        <li><a routerLink="/" routerLinkActive="active"><i class="fas fa-home"></i></a></li>
+        <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fas fa-home"></i></a></li>
 
-        <li><a routerLink="/home" routerLinkActive="active"><i class="far fa-compass"></i></a></li>
+        <li><a routerLink="/random" routerLinkActive="active"><i class="far fa-compass"></i></a></li>
         <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-comments"></i></a></li>
         <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-cog"></i></a></li>
         <li><i class="fas fa-power-off" (click)="logout()"></i></li>
@@ -43,11 +43,11 @@
     </div>
 
     <div class="blog_contain">
-      
+
       <!-- card one -->
       <div class="blog_card">
-        
-        <!-- <p>Hello {{user.username}}!</p> -->
+
+        <p>Hello {{user.username}}!</p>
         <!-- <p>{{user | json}}</p> -->
 
         <div class="card_head">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
@@ -9,11 +10,29 @@ import * as $ from 'jquery';
 })
 export class DashboardComponent implements OnInit {
   title = "scroll";
-  add_post = false;
+  errors = {};
 
-  constructor() { }
+  constructor(
+    private _userService: UserService, 
+    private _router: Router
+  ) { }
 
   ngOnInit() {
+
+    console.log('made it to dashboard')
+
+  }
+  // thisUser(){
+  //   let observable = this._userService.getOneById(session.user_id);
+  //   observable.subscribe(data => {
+  //     if(data['status'] == "not ok"){
+  //       this.errors = data['errors']['errors'];
+  //     } else {
+  //       this._router.navigate(['/dashboard']);
+  //     }
+  //   });
+  // }
+
     $(document).ready(function(){
       // $("html, body").animate({ scrollTop: 0 }, "slow");
 
@@ -30,7 +49,6 @@ export class DashboardComponent implements OnInit {
           $('.add_post_text').css("visibility","hidden");
         });
       });
-
     });
   }
 
@@ -42,7 +60,4 @@ export class DashboardComponent implements OnInit {
       this.add_post = true;
     }
   }
-
-
-
 }

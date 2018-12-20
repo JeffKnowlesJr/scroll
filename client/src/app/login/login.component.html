@@ -24,9 +24,17 @@
 <div class="page_head">
   <h1><i class="fas fa-scroll scroll_main"></i>{{title}}</h1>
   <div class="head_text">
-    <input class="login_input" type="text" placeholder="email">
-    <input class="login_input" type="text" placeholder="password">
-    <input class="submit" type="submit" value="Start Scrolling">
+    <form (submit)="login()">
+      <input class="login_input" type="text" name="user.email" [(ngModel)]="user.email" placeholder="email">
+      <input class="login_input" type="text" name="user.password" [(ngModel)]="user.password" placeholder="password">
+      <div class="error">
+        <p *ngIf="errors.username">{{errors.username.message}}</p>
+        <p *ngIf="errors.email">{{errors.email.message}}</p>
+        <p *ngIf="errors.password">{{errors.password.message}}</p>
+        <p *ngIf="errors.repeat">{{errors.repeat.message}}</p>
+      </div>
+      <input class="submit" type="submit" value="Start Scrolling">
+    </form>
   </div>
 
 

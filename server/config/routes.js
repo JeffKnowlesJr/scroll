@@ -6,6 +6,7 @@ const Comments = require("../controllers/comments");
 
 module.exports = function(app){
   app.get("/users", Users.getAll);
+  app.post("/user", Users.getUser);
   app.post("/users", Users.create);
   app.put("/users/:id", Users.update);
   app.delete("/users/:id", Users.delete);

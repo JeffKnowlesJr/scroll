@@ -17,6 +17,9 @@ export class PostService {
   getOne(id){
     return this._http.get(`/post/${id}`);
   }
+  getUserPosts(userId){
+    return this._http.get(`/posts/${userId}`);
+  }
 
   updateOne(id, post){
     return this._http.put(`/posts/${id}`, post);

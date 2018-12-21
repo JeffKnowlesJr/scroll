@@ -333,3 +333,61 @@
 .card_footer i:hover{
   color:rgb(97, 158, 95)!important;
 }
+
+/* <------- Comment Styling ------->*/
+.comment_contain{
+  border-top: 1px solid lightgray;
+  height:80px;
+  width:90%;
+  margin:auto;
+}
+
+.comment_input{
+  margin-top: 30px;
+  width:85%;
+  border:none;
+  border:1px solid grey;
+  background-color: rgba(7, 7, 7, 0.116);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height:40px;
+  color:rgb(39, 39, 39) !important;
+  text-align: center;
+  font-size: 16px;
+}
+
+.submit_comment{
+  margin-top: 30px;
+  width:15%;
+  font-size: 14px;
+  border:none;
+  border-top:1px solid grey;
+  border-right:1px solid grey;
+  border-bottom: 1px solid grey;
+  background-color:rgb(97, 158, 95)!important;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height:40px;
+  color:white;
+}
+
+.comment_input:focus{
+  outline:none;
+}
+
+.submit_comment:focus{
+  outline:none;
+}
+
+.comment_input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color:rgb(39, 39, 39) !important;
+}
+.comment_input::-moz-placeholder { /* Firefox 19+ */
+  color:rgb(39, 39, 39) !important;
+}
+.comment_input:-ms-input-placeholder { /* IE 10+ */
+  color:rgb(39, 39, 39) !important;
+}
+.comment_input:-moz-placeholder { /* Firefox 18- */
+  color:rgb(39, 39, 39) !important;
+}

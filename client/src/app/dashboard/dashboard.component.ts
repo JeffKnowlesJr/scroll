@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { PostService } from '../post.service';
 import { Router } from '@angular/router';
 import * as $ from 'jquery';
 
@@ -14,17 +15,26 @@ export class DashboardComponent implements OnInit {
   add_post = false;
   add_postText = false;
 
+  opened_notes = false;
+  opened_comment = false;
+  rebloged_post = false;
+  liked_post = false;
+
   user: any;
   errors = {};
 
+  cards = [];
+
   constructor(
     private _userService: UserService,
+    private _postService: PostService,
     private _router: Router
   ) { }
 
   ngOnInit() {
 
     this.thisUser();
+    this.getAllCards();
 
     console.log('made it to dashboard')
       $(document).ready(function(){
@@ -68,6 +78,17 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  getAllCards(){
+    let observable = this._postService.getAll();
+    observable.subscribe( data => {
+      this.cards = data['posts'];
+      console.log(data);
+    });
+  }
+
+
+//<<-----for controlling the form dropdown----->>
+
   add_post_clicked() {
     if(this.add_post) {
       this.add_post = false;
@@ -77,8 +98,6 @@ export class DashboardComponent implements OnInit {
     }
   }
 
-  //<<-----for controlling the form dropdown----->>
-
   text_click() {
     if(this.add_postText) {
       this.add_postText = false;
@@ -86,6 +105,38 @@ export class DashboardComponent implements OnInit {
     else{
       this.add_postText = true;
     }
+  }
+
+
+//<<-----for liking, commenting, and reblogging----->>
+
+
+
+  notes_clicked() {
+    console.log("Notes Button Clicked");
+  }
+
+  comment_clicked() {
+    console.log("Comments Button Clicked");
+    if(this.opened_comment) {
+      this.opened_comment = false;
+    }
+    else{
+      this.opened_comment = true;
+    }
+  }
+
+  reblog_clicked() {
+    console.log("Reblog Button Clicked");
+  }
+
+  likes_clicked() {
+    console.log("Like Button clicked");
+  }
+
+
+  comment_post(post_id) {
+
   }
 
 

@@ -29,7 +29,16 @@ class Posts {
       }
     });
   }
-  
+  getById(req, res){
+    Post.find({creator_id: req.params.id}).sort({"updatedAt": -1}).exec( function(err, posts){
+      if(err){
+        res.json({"status": "not ok", "errors": err});
+      }else{
+        res.json({"status": "ok", "posts": posts});
+      }
+    });
+  }
+
   update(req, res) {
     console.log("log", req.params.id);
     Post.findOneAndUpdate({_id: req.params.id}, {$set: {title: req.body.title, contents: req.body.contents}}, options, function(err, data){

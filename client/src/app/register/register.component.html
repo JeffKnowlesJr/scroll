@@ -64,6 +64,7 @@
       <input class="login_input" type="text" name="user.email" [(ngModel)]="user.email" placeholder="email">
       <input class="login_input" type="text" name="user.password" [(ngModel)]="user.password" placeholder="password">
       <div class="error">
+        <p *ngIf="errors.icon">{{errors.icon.message}}</p>
         <p *ngIf="errors.username">{{errors.username.message}}</p>
         <p *ngIf="errors.email">{{errors.email.message}}</p>
         <p *ngIf="errors.password">{{errors.password.message}}</p>

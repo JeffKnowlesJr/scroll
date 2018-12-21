@@ -13,6 +13,7 @@ export class DashboardComponent implements OnInit {
   title = "scroll";
   add_post = false;
   add_postText = false;
+
   user: any;
   errors = {};
 
@@ -75,4 +76,17 @@ export class DashboardComponent implements OnInit {
       this.add_post = true;
     }
   }
+
+  //<<-----for controlling the form dropdown----->>
+
+  text_click() {
+    if(this.add_postText) {
+      this.add_postText = false;
+    }
+    else{
+      this.add_postText = true;
+    }
+  }
+
+
 }

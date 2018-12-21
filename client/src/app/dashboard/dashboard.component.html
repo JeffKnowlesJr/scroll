@@ -27,27 +27,39 @@
 
   <!---------------Post Dash -------------->
 
+
+  <!-------------------------- Creating a post -------------------------->
   <div class="main_dash">
     <div class="add_post">
         <i *ngIf="!add_post" (click)="add_post_clicked()" class="fas fa-plus"></i>
         <i *ngIf="add_post" (click)="add_post_clicked()" class="fas fa-minus"></i>
     </div>
-    <p *ngIf="!add_post" class="add_post_text">Add a new post</p>
+    <p *ngIf="!add_post" class="add_post_text">new post</p>
 
     <div *ngIf="add_post" id="post_form">
-        <i class="fas fa-link"></i>
-        <i class="fas fa-images"></i>
-        <i class="fas fa-font"></i>
-        <i class="fab fa-youtube"></i>
-        <i class="fas fa-headphones"></i>
+        <i (click)="link_click()" class="fas fa-link"></i>
+        <i (click)="image_click()" class="fas fa-images"></i>
+        <i (click)="text_click()" class="fas fa-font"></i>
+        <i (click)="video_click()" class="fab fa-youtube"></i>
+        <i (click)="music_click()" class="fas fa-headphones"></i>
     </div>
+
+
+    <app-post class="post_form_contents" *ngIf="add_postText"></app-post>
+
+    <!-- <app-upload *ngIf="add_postText"></app-upload> -->
+
+
+
+
+  <!-------------------------- Central Blog Posts -------------------------->
 
     <div class="blog_contain">
 
       <!-- card one -->
       <div class="blog_card">
 
-        <p>Hello {{user.username}}!</p>
+        <!-- <p>Hello {{user.username}}!</p> -->
         <!-- <p>{{user | json}}</p> -->
 
         <div class="card_head">
@@ -118,10 +130,5 @@
       </div>
 
     </div>
-
-
-    <app-post></app-post>
-
-  <app-upload></app-upload>
 
   </div>

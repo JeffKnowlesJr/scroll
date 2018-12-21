@@ -23,6 +23,7 @@ app.use(session({
     secret: 'thisisoursupersecretkey!',
     resave: false,
     saveUninitialized: true,
+
     cookie: { maxAge: 1800000 }
 }));
 

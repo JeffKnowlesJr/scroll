@@ -1,17 +1,21 @@
-<div class="AddPost">
+<div class="addpost">
+
+  <!---------- post form ----------->
   <form (submit)="create()">
-    <div class="form-group">
-      <label for="Title">Title: </label>
-      <input type="text" name="post.title" [(ngModel)]="post.title" class="form-control" placeholder="Post Name">
+
+      <!---------- Title ----------->
+      <input type="text" name="post.title" [(ngModel)]="post.title" class="form-control" placeholder="You title goes here">
+      <!---------- Errors----------->
       <small *ngIf="errors.title" class="form-text text-muted">{{errors.title.message}}</small>
-    </div>
-    <div class="form-group">
-      <label for="Content">Contents: </label>
-      <textarea name="post.contents" [(ngModel)]="post.contents" placeholder="Style" rows="8" cols="80"></textarea>
+
+      <!---------- Contents ----------->
+      <textarea name="post.contents" [(ngModel)]="post.contents" placeholder="Go ahead, tell us how you really feel!"></textarea>
+      <!---------- Errors ----------->
       <small *ngIf="errors.contents" class="form-text text-muted">{{errors.content.message}}</small>
-    </div>
+
+      <!---------- Submit ----------->
     <input type="submit" value="Add a Post" />
-    <a [routerLink]="['/dashboard']"><input type="submit" value="Cancel" /></a> 
+
   </form>
 </div>
 

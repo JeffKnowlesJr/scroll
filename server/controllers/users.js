@@ -25,7 +25,7 @@ class Users {
           } else {
             // with bcrypt
             bcrypt.hash(req.body.password, saltrounds, function(err,hash) {
-              let user = new User({username: req.body.username, email: req.body.email, password: hash})
+              let user = new User({username: req.body.username, email: req.body.email, icon: req.body.icon, password: hash})
               user.save(function(err){
                 if(err){
                   res.json({"status": "not ok", "errors": err});
@@ -54,7 +54,7 @@ class Users {
       } else if(!data) {
         res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "No account associated with this email. Please create an account."}}}});
       } else {
-        bcrypt.compare(req.body.password, data.password, function (err, result) { 
+        bcrypt.compare(req.body.password, data.password, function (err, result) {
           console.log("Result of bcrypt", result);
           if(result == true) {
             req.session.user_id = data._id;

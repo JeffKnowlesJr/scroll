@@ -34,3 +34,14 @@
   width:100%;
   margin:auto;
 }
+
+input{
+  padding: 3px 6px;
+  color: black;
+  margin-bottom: 3px;
+}
+
+button{
+  color: black;
+  margin-right: 3px;
+}

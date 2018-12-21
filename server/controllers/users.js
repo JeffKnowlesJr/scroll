@@ -101,7 +101,7 @@ class Users {
     });
   }
   update(req, res) {
-    User.findOneAndUpdate({_id: req.params.id}, {$set: {password: req.body.password, username: req.body.username, email: req.body.email}}, options, function(err, user){
+    User.findOneAndUpdate({_id: req.params.id}, {$set: {password: req.body.password, icon: req.body.icon, username: req.body.username, email: req.body.email}}, options, function(err, user){
       if(err){
         res.json({"status": "not ok", "errors": err});
       }else{

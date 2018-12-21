@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-settings',
@@ -21,6 +22,16 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit() {
     this.thisUser();
+
+    $(document).ready(function() {
+
+        $('img').hover(function() {
+            $(this).attr('src', '../assets/img/' + $(this).attr("num") + ".gif");
+        },
+        function(){
+            $(this).attr('src', '../assets/img/' + $(this).attr("num") + ".png");
+        });
+    })
   }
 
   thisUser(){

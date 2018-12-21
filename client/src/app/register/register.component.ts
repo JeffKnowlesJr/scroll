@@ -12,12 +12,13 @@ export class RegisterComponent implements OnInit {
   user = {
     "username": '',
     "email": '',
-    "password": ''
+    "password": '',
+    "icon": ''
   }
   errors = {};
-  
+
   constructor(
-    private _userService: UserService, 
+    private _userService: UserService,
     private _router: Router
   ) { }
 

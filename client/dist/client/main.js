@@ -853,7 +853,8 @@ var RegisterComponent = /** @class */ (function () {
         this.user = {
             "username": '',
             "email": '',
-            "password": ''
+            "password": '',
+            "icon": ''
         };
         this.errors = {};
     }
@@ -905,7 +906,7 @@ module.exports = ".settingsBorder {\n  height: 500px;\n  width: 460px;\n  margin
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"settingsBorder\">\n  <form (submit)=\"updateSettings(user._id)\">\n    <div>\n      <p>Select your icon: </p>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/1.png\" checked>\n        <img class=\"post_profile_photo\" src=\"../assets/img/1.png\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/2.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/2.png\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/3.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/3.png\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/4.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/4.png\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/5.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/5.png\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/6.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/6.png\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/7.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/7.png\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/8.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/8.png\" alt=\"\">\n      </label>\n\n      <br>\n      <input class=\"login_input\" type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" placeholder=\"username\">\n      <br>\n      <input class=\"login_input\" type=\"text\" name=\"user.email\" [(ngModel)]=\"user.email\" placeholder=\"email\">\n      <br>\n      <input class=\"login_input\" type=\"text\" name=\"user.password\" [(ngModel)]=\"user.password\" placeholder=\"password\">\n      <div class=\"error\">\n        <p *ngIf=\"errors.icon\">{{errors.icon.message}}</p>\n        <p *ngIf=\"errors.username\">{{errors.username.message}}</p>\n        <p *ngIf=\"errors.email\">{{errors.email.message}}</p>\n        <p *ngIf=\"errors.password\">{{errors.password.message}}</p>\n        <p *ngIf=\"errors.repeat\">{{errors.repeat.message}}</p>\n      </div>\n    </div>\n\n    <input type=\"submit\" value=\"Save changes\" />\n    <a [routerLink]=\"['/dashboard']\"><input type=\"submit\" value=\"Cancel\" /></a>\n  </form>\n</div>\n"
+module.exports = "<div class=\"settingsBorder\">\n  <form (submit)=\"updateSettings(user._id)\">\n    <div>\n      <p>Select your icon: </p>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/1.png\" checked>\n        <img class=\"post_profile_photo\" src=\"../assets/img/1.png\" num=\"1\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/2.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/2.png\" num=\"2\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/3.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/3.png\" num=\"3\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/4.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/4.png\" num=\"4\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/5.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/5.png\" num=\"5\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/6.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/6.png\" num=\"6\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/7.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/7.png\" num=\"7\" alt=\"\">\n      </label>\n      <label>\n        <input type=\"radio\" name=\"user.icon\" [(ngModel)]=\"user.icon\" value=\"../assets/img/8.png\">\n        <img class=\"post_profile_photo\" src=\"../assets/img/8.png\" num=\"8\" alt=\"\">\n      </label>\n\n      <br>\n      <input class=\"login_input\" type=\"text\" name=\"user.username\" [(ngModel)]=\"user.username\" placeholder=\"username\">\n      <br>\n      <input class=\"login_input\" type=\"text\" name=\"user.email\" [(ngModel)]=\"user.email\" placeholder=\"email\">\n      <br>\n      <input class=\"login_input\" type=\"text\" name=\"user.password\" [(ngModel)]=\"user.password\" placeholder=\"password\">\n      <div class=\"error\">\n        <p *ngIf=\"errors.icon\">{{errors.icon.message}}</p>\n        <p *ngIf=\"errors.username\">{{errors.username.message}}</p>\n        <p *ngIf=\"errors.email\">{{errors.email.message}}</p>\n        <p *ngIf=\"errors.password\">{{errors.password.message}}</p>\n        <p *ngIf=\"errors.repeat\">{{errors.repeat.message}}</p>\n      </div>\n    </div>\n\n    <input type=\"submit\" value=\"Save changes\" />\n    <a [routerLink]=\"['/dashboard']\"><input type=\"submit\" value=\"Cancel\" /></a>\n  </form>\n</div>\n"
 
 /***/ }),
 
@@ -923,6 +924,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -937,6 +941,13 @@ var SettingsComponent = /** @class */ (function () {
     }
     SettingsComponent.prototype.ngOnInit = function () {
         this.thisUser();
+        jquery__WEBPACK_IMPORTED_MODULE_4__(document).ready(function () {
+            jquery__WEBPACK_IMPORTED_MODULE_4__('img').hover(function () {
+                jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr('src', '../assets/img/' + jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr("num") + ".gif");
+            }, function () {
+                jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr('src', '../assets/img/' + jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr("num") + ".png");
+            });
+        });
     };
     SettingsComponent.prototype.thisUser = function () {
         var _this = this;

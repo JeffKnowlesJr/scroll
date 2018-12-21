@@ -1,5 +1,5 @@
 <!---------------Navigation Bar-------------->
-<img src="../../assets/img/park.jpg" alt="">
+<img class="imgb" src="../../assets/img/park.jpg" alt="">
 <div class="nav_bar">
   <!-- search -->
   <div class="search">
@@ -22,9 +22,44 @@
 
 
 <div class="page_head">
+
   <h1><i class="fas fa-scroll scroll_main"></i>{{title}}</h1>
   <div class="head_text">
+    <br>
     <form (submit)="create()">
+      <p>Select your icon...</p>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/1.png" checked>
+        <img class="post_profile_photo" src="../assets/img/1.png" alt="">
+      </label>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/2.png">
+        <img class="post_profile_photo" src="../assets/img/2.png" alt="">
+      </label>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/3.png">
+        <img class="post_profile_photo" src="../assets/img/3.png" alt="">
+      </label>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/4.png">
+        <img class="post_profile_photo" src="../assets/img/4.png" alt="">
+      </label>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/5.png">
+        <img class="post_profile_photo" src="../assets/img/5.png" alt="">
+      </label>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/6.png">
+        <img class="post_profile_photo" src="../assets/img/6.png" alt="">
+      </label>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/7.png">
+        <img class="post_profile_photo" src="../assets/img/7.png" alt="">
+      </label>
+      <label>
+        <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/8.png">
+        <img class="post_profile_photo" src="../assets/img/8.png" alt="">
+      </label>
       <input class="login_input" type="text" name="user.username" [(ngModel)]="user.username" placeholder="username">
       <input class="login_input" type="text" name="user.email" [(ngModel)]="user.email" placeholder="email">
       <input class="login_input" type="text" name="user.password" [(ngModel)]="user.password" placeholder="password">
@@ -44,4 +79,3 @@
 
 
 <!------------- End of Opening Page ------------->
-

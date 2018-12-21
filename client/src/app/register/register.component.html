@@ -62,7 +62,7 @@
       </label>
       <input class="login_input" type="text" name="user.username" [(ngModel)]="user.username" placeholder="username">
       <input class="login_input" type="text" name="user.email" [(ngModel)]="user.email" placeholder="email">
-      <input class="login_input" type="text" name="user.password" [(ngModel)]="user.password" placeholder="password">
+      <input class="login_input" type="password" name="user.password" [(ngModel)]="user.password" placeholder="password">
       <div class="error">
         <p *ngIf="errors.icon">{{errors.icon.message}}</p>
         <p *ngIf="errors.username">{{errors.username.message}}</p>

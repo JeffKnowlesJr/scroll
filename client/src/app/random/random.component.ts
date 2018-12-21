@@ -12,7 +12,8 @@ import * as $ from 'jquery';
   styleUrls: ['./random.component.css']
 })
 export class RandomComponent implements OnInit {
-
+  settingsClick = false;
+  
   title = "scroll";
   cards = [];
   errors = {};
@@ -71,7 +72,15 @@ export class RandomComponent implements OnInit {
         this._router.navigate(['/']);
       }
     });
+  }
 
+  settings_clicked() {
+    if(this.settingsClick) {
+      this.settingsClick = false;
+    }
+    else{
+      this.settingsClick = true;
+    }
   }
 
 }

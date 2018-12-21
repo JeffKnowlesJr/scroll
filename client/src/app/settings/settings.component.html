@@ -1,6 +1,9 @@
 <div class="settingsBorder">
   <form (submit)="updateSettings(user._id)">
     <div>
+      <h3>Update your account:</h3>
+      <br>
+      <br>
       <p>Select your icon: </p>
       <label>
         <input type="radio" name="user.icon" [(ngModel)]="user.icon" value="../assets/img/1.png" checked>
@@ -36,11 +39,13 @@
       </label>
 
       <br>
+      <br>
+      <p>username:</p>
       <input class="login_input" type="text" name="user.username" [(ngModel)]="user.username" placeholder="username">
-      <br>
+      <p>email:</p>
       <input class="login_input" type="text" name="user.email" [(ngModel)]="user.email" placeholder="email">
-      <br>
-      <input class="login_input" type="text" name="user.password" [(ngModel)]="user.password" placeholder="password">
+      <p>password:</p>
+      <input class="login_input" type="password" name="user.password" [(ngModel)]="user.password" placeholder="password">
       <div class="error">
         <p *ngIf="errors.icon">{{errors.icon.message}}</p>
         <p *ngIf="errors.username">{{errors.username.message}}</p>
@@ -50,7 +55,7 @@
       </div>
     </div>
 
-    <input type="submit" value="Save changes" />
-    <a [routerLink]="['/dashboard']"><input type="submit" value="Cancel" /></a>
+    <input class="submit" type="submit" value="Save changes" />
+    <a [routerLink]="['/dashboard']"><input class="submit" type="submit" value="Cancel" /></a>
   </form>
 </div>

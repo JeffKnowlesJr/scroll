@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +25,9 @@ export class RegisterComponent implements OnInit {
 
 
   ngOnInit() {
+    
   }
+
   create(){
     let observable = this._userService.createUser(this.user);
     observable.subscribe(data => {

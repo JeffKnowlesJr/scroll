@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
   title = "scroll";
   add_post = false;
   add_postText = false;
+  settingsClick = false;
 
   opened_notes = false;
   opened_comment = false;
@@ -88,6 +89,15 @@ export class DashboardComponent implements OnInit {
 
 
 //<<-----for controlling the form dropdown----->>
+
+  settings_clicked() {
+    if(this.settingsClick) {
+      this.settingsClick = false;
+    }
+    else{
+      this.settingsClick = true;
+    }
+  }
 
   add_post_clicked() {
     if(this.add_post) {

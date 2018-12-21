@@ -30,8 +30,7 @@ const PostSchema = new mongoose.Schema(
     },
     // Post Model Attribute Creator_icon
     creator_icon: {
-      type: String,
-      required: [true, "Post must have a creator."]
+      type: String
     },
     comments: [CommentSchema]
   },

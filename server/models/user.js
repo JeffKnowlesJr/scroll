@@ -4,6 +4,11 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
   {
+    icon: {
+    // User Model Attribute Icon
+      type: String,
+      required: [true, "Icon is required"],
+    },
     username: {
     // User Model Attribute Userame
       type: String,

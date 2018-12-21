@@ -2,7 +2,8 @@ console.log("inside of users.js");
 
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
-// const session = require('express-session');
+const bcrypt = require('bcryptjs');
+const saltrounds = 10;
 
 let options = {
   new:true,
@@ -22,18 +23,22 @@ class Users {
           if(data){
             res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "This email already exists in the database"}}}});
           } else {
-            let user = new User(req.body);
-            user.save(function(err){
-              if(err){
-                res.json({"status": "not ok", "errors": err});
-              }else{
-                console.log('successful register')
-                req.session.user_id = user._id;
-                req.session.logged_in = true;
-                console.log(req.session)
-                res.json({"status": "ok", "user": data, "session": req.session});
-              }
-            });
+            // with bcrypt
+            bcrypt.hash(req.body.password, saltrounds, function(err,hash) {
+              let user = new User({username: req.body.username, email: req.body.email, password: hash})
+              user.save(function(err){
+                if(err){
+                  res.json({"status": "not ok", "errors": err});
+                }else{
+                  console.log('successful register')
+                  req.session.user_id = user._id;
+                  req.session.logged_in = true;
+                  console.log(req.session)
+                  res.json({"status": "ok", "user": data, "session": req.session});
+                }
+              })
+            })
+
           }
         })
 
@@ -48,19 +53,24 @@ class Users {
         res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "Email cannot be blank"}}}});
       } else if(!data) {
         res.json({"status": "not ok", "errors": {"errors": {"repeat": {"message": "No account associated with this email. Please create an account."}}}});
-      } else if(data.password != req.body.password) {
-        res.json({"status": "not ok", "errors": {"errors": {"password": {"message": "Incorrect password."}}}});
       } else {
-        if(err) {
-            res.json({"status": "not ok", "errors": err});
-        } else {
-          req.session.user_id = data._id;
-          req.session.logged_in = true;
-          console.log(req.session);
-          res.json({"status": "ok", "user": data, "session": req.session});
-        }
+        bcrypt.compare(req.body.password, data.password, function (err, result) { 
+          console.log("Result of bcrypt", result);
+          if(result == true) {
+            req.session.user_id = data._id;
+            req.session.logged_in = true;
+            console.log(req.session);
+            res.json({"status": "ok", "user": data, "session": req.session});
+          } else {
+            res.json({"status": "not ok", "errors": {"errors": {"password": {"message": "Incorrect password."}}}});
+          }
+        })
       }
     });
+
+
+
+
   }
 
   getUserById(req,res){

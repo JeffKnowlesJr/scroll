@@ -6,6 +6,7 @@ const express = require("express"),
         path = require('path'),
         upload = require('./upload'),
         cors = require('cors'),
+        bcrypt = require('bcryptjs'),
         port = 8888;
 
 // Added for file upload
@@ -22,7 +23,8 @@ app.use(session({
     secret: 'thisisoursupersecretkey!',
     resave: false,
     saveUninitialized: true,
-    // cookie: { maxAge: 60000 }
+
+    cookie: { maxAge: 1800000 }
 }));
 
 require("./server/config/mongoose")(db_name);

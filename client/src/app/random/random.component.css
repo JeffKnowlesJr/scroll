@@ -323,3 +323,9 @@
 .card_footer i:hover{
   color:rgb(97, 158, 95)!important;
 }
+
+.settingsStyle {
+  position: fixed;
+  right: 35px;
+  top: 100px;
+}

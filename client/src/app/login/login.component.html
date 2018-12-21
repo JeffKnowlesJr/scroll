@@ -26,7 +26,7 @@
   <div class="head_text">
     <form (submit)="login()">
       <input class="login_input" type="text" name="user.email" [(ngModel)]="user.email" placeholder="email">
-      <input class="login_input" type="text" name="user.password" [(ngModel)]="user.password" placeholder="password">
+      <input class="login_input" type="password" name="user.password" [(ngModel)]="user.password" placeholder="password">
       <div class="error">
         <p *ngIf="errors.username">{{errors.username.message}}</p>
         <p *ngIf="errors.email">{{errors.email.message}}</p>
@@ -43,4 +43,3 @@
 
 
 <!------------- End of Opening Page ------------->
-

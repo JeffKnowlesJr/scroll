@@ -391,3 +391,9 @@
 .comment_input:-moz-placeholder { /* Firefox 18- */
   color:rgb(39, 39, 39) !important;
 }
+
+.settingsStyle {
+  position: fixed;
+  right: 35px;
+  top: 100px;
+}

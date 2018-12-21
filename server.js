@@ -6,6 +6,7 @@ const express = require("express"),
         path = require('path'),
         upload = require('./upload'),
         cors = require('cors'),
+        bcrypt = require('bcryptjs'),
         port = 8888;
 
 // Added for file upload

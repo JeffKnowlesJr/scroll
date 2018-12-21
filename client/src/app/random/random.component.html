@@ -36,8 +36,7 @@
       <div class="blog_card" *ngFor="let card of cards">
 
         <div class="card_head">
-
-          <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
+          <img class="post_profile_photo" src="{{ card.creator_icon }}" alt="">
           <h3>{{card.creator_name}} <span>(22min ago)</span></h3>
           <img class="img" src="../assets/img/travel.jpg" alt="">
         </div>

@@ -4,11 +4,14 @@
       <h1><i class="fas fa-scroll scroll_main"></i>{{title}}</h1>
     </div>
 
+    <!-- settings -->
+    <!-- <app-settings *ngIf="settingsClick"></app-settings> -->
+    <app-settings></app-settings>
+
     <!-- login/registration -->
     <div class="login_register">
       <ul>
         <li><a routerLink="/dashboard" routerLinkActive="active"><i class="fas fa-home"></i></a></li>
-
         <li><a routerLink="/random" routerLinkActive="active"><i class="far fa-compass"></i></a></li>
         <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-comments"></i></a></li>
         <li><a routerLink="/signup" routerLinkActive="active"><i class="fas fa-cog"></i></a></li>
@@ -50,7 +53,7 @@
         <p>Hello {{user.username}}!</p>
         <!-- <p>{{user | json}}</p> -->
 
-        <div class="card_head">
+      <div class="card_head">
 
         <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
         <h3>SkiesTheLimit <span>(22min ago)</span></h3>

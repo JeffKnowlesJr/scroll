@@ -16,7 +16,8 @@ export class PostComponent implements OnInit {
     "title": "",
     "contents": "",
     "creator_id": "",
-    "creator_name": ""
+    "creator_name": "",
+    "creator_icon": ""
   }
 
 
@@ -46,16 +47,19 @@ thisUser(){
     if(data['status'] == "not ok"){
       this.errors = data['errors']['errors'];
       this._router.navigate(['/']);
-    } else {
+    }
+    else {
       this.user = data["user"]
-      console.log(this.user);  
-      
-    this.post = {
-    "title": "",
-    "contents": "",
-    "creator_id": this.user._id,
-    "creator_name": this.user.username
-  }
+      console.log(this.user);
+
+      this.post = {
+        "title": "",
+        "contents": "",
+        "creator_id": this.user._id,
+        "creator_name": this.user.username,
+        "creator_icon": this.user.icon
+      }
+      console.log(this.post);
     }
   });
 }

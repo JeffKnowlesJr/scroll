@@ -1,6 +1,6 @@
 
 /* <------- Navigation Bar Styling ------->*/
-img{
+.imgb {
   position: fixed;
   top:-200px;
   filter: blur(8px);
@@ -225,3 +225,33 @@ img{
   border-radius: 3px;
 }
 
+/* HIDE RADIO */
+[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+[type=radio] + .post_profile_photo {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + .post_profile_photo {
+  opacity: 1;
+}
+
+.post_profile_photo{
+  width:50px!important;
+  border-radius: 50%;
+  display: inline-block;
+  margin:15px;
+  opacity: 0.5;
+}
+
+.img{
+  width:100%;
+  margin:auto;
+}

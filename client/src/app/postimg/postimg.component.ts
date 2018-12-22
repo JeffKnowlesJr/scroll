@@ -3,24 +3,22 @@ import { PostService } from '../post.service';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: 'app-postimg',
+  templateUrl: './postimg.component.html',
+  styleUrls: ['./postimg.component.css']
 })
-export class PostComponent implements OnInit {
+export class PostimgComponent implements OnInit {
 
   user: any;
   post = {
     "title": "",
+    "imageurl": "",
     "contents": "",
     "creator_id": "",
     "creator_name": "",
     "creator_icon": ""
   }
-
-
   errors = {};
 
   constructor(
@@ -31,8 +29,8 @@ export class PostComponent implements OnInit {
 
   ngOnInit() {
     this.thisUser();
-    console.log(this.user);
   }
+
   create(){
   console.log("CREATE EXECUTED");
   let observable = this._postService.createOne(this.post);
@@ -44,6 +42,7 @@ export class PostComponent implements OnInit {
     else{
       this.post = {
         "title": "",
+        "imageurl": "",
         "contents": "",
         "creator_id": "",
         "creator_name": "",
@@ -53,6 +52,7 @@ export class PostComponent implements OnInit {
     }
   });
 }
+
 thisUser(){
   let observable = this._userService.getOneById();
   observable.subscribe(data => {
@@ -66,6 +66,7 @@ thisUser(){
 
       this.post = {
         "title": "",
+        "imageurl": "",
         "contents": "",
         "creator_id": this.user._id,
         "creator_name": this.user.username,
@@ -75,6 +76,4 @@ thisUser(){
     }
   });
 }
-
-
 }

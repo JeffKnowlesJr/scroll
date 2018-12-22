@@ -18,6 +18,7 @@ import { RandomComponent } from './random/random.component';
 
 
 import { PostComponent } from './post/post.component';
+import { PostimgComponent } from './postimg/postimg.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { PostComponent } from './post/post.component';
     RegisterComponent,
     SettingsComponent,
     RandomComponent,
-    PostComponent
+    PostComponent,
+    PostimgComponent
 
   ],
   imports: [

@@ -192,6 +192,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 /* harmony import */ var _random_random_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./random/random.component */ "./src/app/random/random.component.ts");
 /* harmony import */ var _post_post_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./post/post.component */ "./src/app/post/post.component.ts");
+/* harmony import */ var _postimg_postimg_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./postimg/postimg.component */ "./src/app/postimg/postimg.component.ts");
+
 
 
 
@@ -221,7 +223,8 @@ var AppModule = /** @class */ (function () {
                 _register_register_component__WEBPACK_IMPORTED_MODULE_11__["RegisterComponent"],
                 _settings_settings_component__WEBPACK_IMPORTED_MODULE_12__["SettingsComponent"],
                 _random_random_component__WEBPACK_IMPORTED_MODULE_14__["RandomComponent"],
-                _post_post_component__WEBPACK_IMPORTED_MODULE_15__["PostComponent"]
+                _post_post_component__WEBPACK_IMPORTED_MODULE_15__["PostComponent"],
+                _postimg_postimg_component__WEBPACK_IMPORTED_MODULE_16__["PostimgComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
@@ -261,7 +264,7 @@ module.exports = "\n/* <------- Navigation Bar Styling ------->*/\n\n.scroll_mai
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!---------------Navigation Bar-------------->\n<div class=\"nav_bar\">\n    <div class=\"head_text\">\n      <h1><i class=\"fas fa-scroll scroll_main\"></i>{{title}}</h1>\n    </div>\n\n    <!-- login/registration -->\n    <div class=\"login_register\">\n      <ul>\n        <li><a routerLink=\"/dashboard\" routerLinkActive=\"active\"><i class=\"fas fa-home\"></i></a></li>\n        <li><a routerLink=\"/random\" routerLinkActive=\"active\"><i class=\"far fa-compass\"></i></a></li>\n        <li><a routerLink=\"/signup\" routerLinkActive=\"active\"><i class=\"fas fa-comments\"></i></a></li>\n        <li><a><i (click)=\"settings_clicked()\" class=\"fas fa-cog\"></i></a></li>\n        <li><i class=\"fas fa-power-off\" (click)=\"logout()\"></i></li>\n      </ul>\n    </div>\n\n    <!-- search -->\n    <div class=\"search\">\n      <i class=\"fas fa-search\"></i>\n      <input type=\"text\" placeholder=\"Search Scroll\">\n\n    </div>\n</div>\n\n\n  <!---------------Post Dash -------------->\n\n\n  <!-------------------------- Creating a post -------------------------->\n  <div class=\"main_dash\">\n    <div class=\"add_post\">\n        <i *ngIf=\"!add_post\" (click)=\"add_post_clicked()\" class=\"fas fa-plus\"></i>\n        <i *ngIf=\"add_post\" (click)=\"add_post_clicked()\" class=\"fas fa-minus\"></i>\n    </div>\n    <p *ngIf=\"!add_post\" class=\"add_post_text\">new post</p>\n\n    <div *ngIf=\"add_post\" id=\"post_form\">\n        <i (click)=\"link_click()\" class=\"fas fa-link\"></i>\n        <i (click)=\"image_click()\" class=\"fas fa-images\"></i>\n        <i (click)=\"text_click()\" class=\"fas fa-font\"></i>\n        <i (click)=\"video_click()\" class=\"fab fa-youtube\"></i>\n        <i (click)=\"music_click()\" class=\"fas fa-headphones\"></i>\n    </div>\n\n\n    <app-post *ngIf=\"add_post && add_postText\"  class=\"post_form_contents\"></app-post>\n\n    <!-- <app-upload *ngIf=\"add_postText\"></app-upload> -->\n\n\n\n\n  <!-------------------------- Central Blog Posts -------------------------->\n\n    <div class=\"blog_contain\">\n\n      <!-- card one -->\n      <div class=\"blog_card\">\n\n        <!-- <p>Hello {{user.username}}!</p> -->\n        <!-- <p>{{user | json}}</p> -->\n\n      <div class=\"card_head\">\n\n        <img class=\"post_profile_photo\" src=\"../assets/img/sky.jpg\" alt=\"\">\n        <h3>SkiesTheLimit <span>(22min ago)</span></h3>\n        <img class=\"img\" src=\"../assets/img/travel.jpg\" alt=\"\">\n      </div>\n\n      <div class=\"card_contents\">\n        <h2>Sailing in Greece</h2>\n        <p>I can't believe how amazing this weekend has been. Good food, wine, and friends to share this incredible journey with. I can't wait to visit again...</p>\n      </div>\n\n      <div class=\"card_footer\">\n\n          <i (click)=\"notes_clicked()\" class=\"fas fa-scroll\"></i>\n          <p>915</p>\n\n          <i (click)=\"comment_clicked()\" class=\"far fa-comment-dots\"></i>\n\n          <i (click)=\"reblog_clicked()\" class=\"fa fa-retweet\" aria-hidden=\"true\"></i>\n\n          <i (click)=\"likes_clicked()\" class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n      </div>\n\n      <!-- *ngIf=\"opened_comment\" -->\n      <div class=\"comment_contain\">\n        <form (submit)=\"comment_post()\">\n          <input class=\"comment_input\" type=\"text\" placeholder=\"Comment on x's post\">\n          <input class=\"submit_comment\" type=\"submit\">\n        </form>\n      </div>\n    </div>\n\n    <!-- settings -->\n\n    <app-settings class=\"settingsStyle\" *ngIf=\"settingsClick\"></app-settings>\n    <!-- <app-settings></app-settings> -->\n    \n  </div>\n"
+module.exports = "<!---------------Navigation Bar-------------->\n<div class=\"nav_bar\">\n    <div class=\"head_text\">\n      <h1><i class=\"fas fa-scroll scroll_main\"></i>{{title}}</h1>\n    </div>\n\n    <!-- login/registration -->\n    <div class=\"login_register\">\n      <ul>\n        <li><a routerLink=\"/dashboard\" routerLinkActive=\"active\"><i class=\"fas fa-home\"></i></a></li>\n        <li><a routerLink=\"/random\" routerLinkActive=\"active\"><i class=\"far fa-compass\"></i></a></li>\n        <li><a routerLink=\"/signup\" routerLinkActive=\"active\"><i class=\"fas fa-comments\"></i></a></li>\n        <li><a><i (click)=\"settings_clicked()\" class=\"fas fa-cog\"></i></a></li>\n        <li><i class=\"fas fa-power-off\" (click)=\"logout()\"></i></li>\n      </ul>\n    </div>\n\n    <!-- search -->\n    <div class=\"search\">\n      <i class=\"fas fa-search\"></i>\n      <input type=\"text\" placeholder=\"Search Scroll\">\n\n    </div>\n</div>\n\n\n  <!---------------Post Dash -------------->\n\n\n  <!-------------------------- Creating a post -------------------------->\n  <div class=\"main_dash\">\n    <div class=\"add_post\">\n        <i *ngIf=\"!add_post\" (click)=\"add_post_clicked()\" class=\"fas fa-plus\"></i>\n        <i *ngIf=\"add_post\" (click)=\"add_post_clicked()\" class=\"fas fa-minus\"></i>\n    </div>\n    <p *ngIf=\"!add_post\" class=\"add_post_text\">new post</p>\n\n    <div *ngIf=\"add_post\" id=\"post_form\">\n        <i (click)=\"link_click()\" class=\"fas fa-link\"></i>\n        <i (click)=\"image_click()\" class=\"fas fa-images\"></i>\n        <i (click)=\"text_click()\" class=\"fas fa-font\"></i>\n        <i (click)=\"video_click()\" class=\"fab fa-youtube\"></i>\n        <i (click)=\"music_click()\" class=\"fas fa-headphones\"></i>\n    </div>\n\n\n    <app-post *ngIf=\"add_post && add_postText\"  class=\"post_form_contents\"></app-post>\n    <app-postimg *ngIf=\"add_post && add_postImgText\"  class=\"post_form_contents\"></app-postimg>\n\n    <!-- <app-upload *ngIf=\"add_postText\"></app-upload> -->\n\n\n\n\n  <!-------------------------- Central Blog Posts -------------------------->\n\n    <div class=\"blog_contain\">\n\n      <!-- card one -->\n      <div class=\"blog_card\" *ngFor=\"let card of cards\">\n\n        <div class=\"card_head\">\n          <img class=\"post_profile_photo\" src=\"{{ card.creator_icon }}\" alt=\"\">\n          <h3>{{card.creator_name}} <span>(22min ago)</span></h3>\n          <img class=\"img\" src=\"{{ card.imageurl }}\" alt=\"\">\n        </div>\n\n        <div class=\"card_contents\">\n          <h2>{{card.title}}</h2>\n          <p>{{card.contents}}</p>\n        </div>\n\n        <div class=\"card_footer\">\n\n            <i class=\"fas fa-scroll\"></i>\n            <p>915</p>\n\n            <i class=\"far fa-comment-dots\"></i>\n\n            <i class=\"fa fa-retweet\" aria-hidden=\"true\"></i>\n\n            <i class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n        </div>\n\n\n      <!-- *ngIf=\"opened_comment\" -->\n      <div class=\"comment_contain\">\n        <form (submit)=\"comment_post()\">\n          <input class=\"comment_input\" type=\"text\" placeholder=\"Comment on x's post\">\n          <input class=\"submit_comment\" type=\"submit\">\n        </form>\n      </div>\n\n    </div>\n\n  </div>\n\n    <!-- settings -->\n\n    <app-settings class=\"settingsStyle\" *ngIf=\"settingsClick\"></app-settings>\n    <!-- <app-settings></app-settings> -->\n\n  </div>\n"
 
 /***/ }),
 
@@ -296,11 +299,13 @@ var DashboardComponent = /** @class */ (function () {
         this.title = "scroll";
         this.add_post = false;
         this.add_postText = false;
+        this.add_postImgText = false;
         this.settingsClick = false;
         this.opened_notes = false;
         this.opened_comment = false;
         this.rebloged_post = false;
         this.liked_post = false;
+        this.imagethere = false;
         this.errors = {};
         this.cards = [];
     }
@@ -352,8 +357,16 @@ var DashboardComponent = /** @class */ (function () {
         var _this = this;
         var observable = this._postService.getAll();
         observable.subscribe(function (data) {
-            _this.cards = data['posts'];
-            console.log(data);
+            var cardsAll = [];
+            var cards20 = [];
+            for (var i = data['posts'].length - 1; i > 0; i--) {
+                cardsAll.push(data['posts'][i]);
+            }
+            // to pick 20 posts to display on random component page.
+            for (var i = 0; i < 20; i++) {
+                cards20.push(cardsAll[i]);
+            }
+            _this.cards = cards20;
         });
     };
     //<<-----for controlling the form dropdown----->>
@@ -379,6 +392,16 @@ var DashboardComponent = /** @class */ (function () {
         }
         else {
             this.add_postText = true;
+            this.add_postImgText = false;
+        }
+    };
+    DashboardComponent.prototype.image_click = function () {
+        if (this.add_postImgText) {
+            this.add_postImgText = false;
+        }
+        else {
+            this.add_postImgText = true;
+            this.add_postText = false;
         }
     };
     //<<-----for liking, commenting, and reblogging----->>
@@ -701,6 +724,13 @@ var PostComponent = /** @class */ (function () {
                 _this.errors = data['errors']['errors'];
             }
             else {
+                _this.post = {
+                    "title": "",
+                    "contents": "",
+                    "creator_id": "",
+                    "creator_name": "",
+                    "creator_icon": ""
+                };
                 _this._router.navigate(['/dashboard']);
             }
         });
@@ -733,9 +763,133 @@ var PostComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./post.component.html */ "./src/app/post/post.component.html"),
             styles: [__webpack_require__(/*! ./post.component.css */ "./src/app/post/post.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_post_service__WEBPACK_IMPORTED_MODULE_2__["PostService"], _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_post_service__WEBPACK_IMPORTED_MODULE_2__["PostService"],
+            _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
     ], PostComponent);
     return PostComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/postimg/postimg.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/postimg/postimg.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\n.addpost{\n  display:block;\n  margin:20px auto 0px;\n  width:460px;\n  min-height:80px;\n  border-radius: 6px;\n  background-color: white;\n}\n\ninput[type=\"text\"]{\n  width:100%;\n  color: black;\n  height:50px;\n  font-size: 25px;\n  text-align: center;\n  border:none;\n  border-bottom: 1px solid rgb(173, 173, 173);\n  border-top-right-radius: 6px;\n  border-top-left-radius: 6px;\n\n}\n\ntextarea {\n  min-width: 100%;\n  max-width:100%;\n  min-height: 100px;\n  border:none;\n  padding: 10px 20px;\n  font-size: 16px;\n  color:rgb(25, 25, 25);\n  resize: none;\n}\n\ninput:focus{\n  outline: none;\n}\n\ntextarea:focus{\n  outline: none;\n}\n\ninput[type=\"submit\"]{\n  background-color: rgb(37, 150, 71);\n  width:100px;\n  height:30px;\n  margin: auto 180px 10px 180px;\n  border-radius: 20px;\n  transition: .5s;\n  font-size: 14px;\n  border:none;\n}\n\ninput[type=\"submit\"]:hover{\n  background-color: rgb(35, 114, 59);\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcG9zdGltZy9wb3N0aW1nLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUNBO0VBQ0UsY0FBYztFQUNkLHFCQUFxQjtFQUNyQixZQUFZO0VBQ1osZ0JBQWdCO0VBQ2hCLG1CQUFtQjtFQUNuQix3QkFBd0I7Q0FDekI7O0FBRUQ7RUFDRSxXQUFXO0VBQ1gsYUFBYTtFQUNiLFlBQVk7RUFDWixnQkFBZ0I7RUFDaEIsbUJBQW1CO0VBQ25CLFlBQVk7RUFDWiw0Q0FBNEM7RUFDNUMsNkJBQTZCO0VBQzdCLDRCQUE0Qjs7Q0FFN0I7O0FBRUQ7RUFDRSxnQkFBZ0I7RUFDaEIsZUFBZTtFQUNmLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osbUJBQW1CO0VBQ25CLGdCQUFnQjtFQUNoQixzQkFBc0I7RUFDdEIsYUFBYTtDQUNkOztBQUVEO0VBQ0UsY0FBYztDQUNmOztBQUVEO0VBQ0UsY0FBYztDQUNmOztBQUVEO0VBQ0UsbUNBQW1DO0VBQ25DLFlBQVk7RUFDWixZQUFZO0VBQ1osOEJBQThCO0VBQzlCLG9CQUFvQjtFQUNwQixnQkFBZ0I7RUFDaEIsZ0JBQWdCO0VBQ2hCLFlBQVk7Q0FDYjs7QUFFRDtFQUNFLG1DQUFtQztDQUNwQyIsImZpbGUiOiJzcmMvYXBwL3Bvc3RpbWcvcG9zdGltZy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXG4uYWRkcG9zdHtcbiAgZGlzcGxheTpibG9jaztcbiAgbWFyZ2luOjIwcHggYXV0byAwcHg7XG4gIHdpZHRoOjQ2MHB4O1xuICBtaW4taGVpZ2h0OjgwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDZweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XG59XG5cbmlucHV0W3R5cGU9XCJ0ZXh0XCJde1xuICB3aWR0aDoxMDAlO1xuICBjb2xvcjogYmxhY2s7XG4gIGhlaWdodDo1MHB4O1xuICBmb250LXNpemU6IDI1cHg7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcbiAgYm9yZGVyOm5vbmU7XG4gIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCByZ2IoMTczLCAxNzMsIDE3Myk7XG4gIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiA2cHg7XG4gIGJvcmRlci10b3AtbGVmdC1yYWRpdXM6IDZweDtcblxufVxuXG50ZXh0YXJlYSB7XG4gIG1pbi13aWR0aDogMTAwJTtcbiAgbWF4LXdpZHRoOjEwMCU7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xuICBib3JkZXI6bm9uZTtcbiAgcGFkZGluZzogMTBweCAyMHB4O1xuICBmb250LXNpemU6IDE2cHg7XG4gIGNvbG9yOnJnYigyNSwgMjUsIDI1KTtcbiAgcmVzaXplOiBub25lO1xufVxuXG5pbnB1dDpmb2N1c3tcbiAgb3V0bGluZTogbm9uZTtcbn1cblxudGV4dGFyZWE6Zm9jdXN7XG4gIG91dGxpbmU6IG5vbmU7XG59XG5cbmlucHV0W3R5cGU9XCJzdWJtaXRcIl17XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYigzNywgMTUwLCA3MSk7XG4gIHdpZHRoOjEwMHB4O1xuICBoZWlnaHQ6MzBweDtcbiAgbWFyZ2luOiBhdXRvIDE4MHB4IDEwcHggMTgwcHg7XG4gIGJvcmRlci1yYWRpdXM6IDIwcHg7XG4gIHRyYW5zaXRpb246IC41cztcbiAgZm9udC1zaXplOiAxNHB4O1xuICBib3JkZXI6bm9uZTtcbn1cblxuaW5wdXRbdHlwZT1cInN1Ym1pdFwiXTpob3ZlcntcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiKDM1LCAxMTQsIDU5KTtcbn1cbiJdfQ== */"
+
+/***/ }),
+
+/***/ "./src/app/postimg/postimg.component.html":
+/*!************************************************!*\
+  !*** ./src/app/postimg/postimg.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"addpost\">\n\n  <!---------- post form ----------->\n  <form (submit)=\"create()\">\n\n      <!---------- Title ----------->\n      <input type=\"text\" name=\"post.title\" [(ngModel)]=\"post.title\" class=\"form-control\" placeholder=\"Your title goes here\">\n      <!---------- Errors----------->\n      <small *ngIf=\"errors.title\" class=\"form-text text-muted\">{{errors.title.message}}</small>\n\n      <!---------- Image ----------->\n      <input type=\"text\" name=\"post.imageurl\" [(ngModel)]=\"post.imageurl\" class=\"form-control\" placeholder=\"Your image url goes here\">\n\n      <!---------- Contents ----------->\n      <textarea name=\"post.contents\" [(ngModel)]=\"post.contents\" placeholder=\"Tell us about this photo!\"></textarea>\n      <!---------- Errors ----------->\n      <small *ngIf=\"errors.contents\" class=\"form-text text-muted\">{{errors.content.message}}</small>\n\n      <!---------- Submit ----------->\n    <input type=\"submit\" value=\"Add a Post\" />\n\n  </form>\n</div>\n"
+
+/***/ }),
+
+/***/ "./src/app/postimg/postimg.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/postimg/postimg.component.ts ***!
+  \**********************************************/
+/*! exports provided: PostimgComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostimgComponent", function() { return PostimgComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../post.service */ "./src/app/post.service.ts");
+/* harmony import */ var _user_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../user.service */ "./src/app/user.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
+
+
+
+
+
+var PostimgComponent = /** @class */ (function () {
+    function PostimgComponent(_postService, _userService, _router) {
+        this._postService = _postService;
+        this._userService = _userService;
+        this._router = _router;
+        this.post = {
+            "title": "",
+            "imageurl": "",
+            "contents": "",
+            "creator_id": "",
+            "creator_name": "",
+            "creator_icon": ""
+        };
+        this.errors = {};
+    }
+    PostimgComponent.prototype.ngOnInit = function () {
+        this.thisUser();
+    };
+    PostimgComponent.prototype.create = function () {
+        var _this = this;
+        console.log("CREATE EXECUTED");
+        var observable = this._postService.createOne(this.post);
+        observable.subscribe(function (data) {
+            console.log(data);
+            if (data['status'] == 'not ok') {
+                _this.errors = data['errors']['errors'];
+            }
+            else {
+                _this.post = {
+                    "title": "",
+                    "imageurl": "",
+                    "contents": "",
+                    "creator_id": "",
+                    "creator_name": "",
+                    "creator_icon": ""
+                };
+                _this._router.navigate(['/dashboard']);
+            }
+        });
+    };
+    PostimgComponent.prototype.thisUser = function () {
+        var _this = this;
+        var observable = this._userService.getOneById();
+        observable.subscribe(function (data) {
+            if (data['status'] == "not ok") {
+                _this.errors = data['errors']['errors'];
+                _this._router.navigate(['/']);
+            }
+            else {
+                _this.user = data["user"];
+                console.log(_this.user);
+                _this.post = {
+                    "title": "",
+                    "imageurl": "",
+                    "contents": "",
+                    "creator_id": _this.user._id,
+                    "creator_name": _this.user.username,
+                    "creator_icon": _this.user.icon
+                };
+                console.log(_this.post);
+            }
+        });
+    };
+    PostimgComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+            selector: 'app-postimg',
+            template: __webpack_require__(/*! ./postimg.component.html */ "./src/app/postimg/postimg.component.html"),
+            styles: [__webpack_require__(/*! ./postimg.component.css */ "./src/app/postimg/postimg.component.css")]
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_post_service__WEBPACK_IMPORTED_MODULE_2__["PostService"],
+            _user_service__WEBPACK_IMPORTED_MODULE_3__["UserService"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
+    ], PostimgComponent);
+    return PostimgComponent;
 }());
 
 
@@ -760,7 +914,7 @@ module.exports = "\n/* <------- Navigation Bar Styling ------->*/\n\n.scroll_mai
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<!---------------Navigation Bar-------------->\n<div class=\"nav_bar\">\n    <div class=\"head_text\">\n      <h1><i class=\"fas fa-scroll scroll_main\"></i>{{title}}</h1>\n    </div>\n\n    <!-- login/registration -->\n    <div class=\"login_register\">\n      <ul>\n        <li><a routerLink=\"/dashboard\" routerLinkActive=\"active\"><i class=\"fas fa-home\"></i></a></li>\n\n        <li><a routerLink=\"/random\" routerLinkActive=\"active\"><i class=\"far fa-compass\"></i></a></li>\n        <li><a routerLink=\"/signup\" routerLinkActive=\"active\"><i class=\"fas fa-comments\"></i></a></li>\n        <li><a><i (click)=\"settings_clicked()\" class=\"fas fa-cog\"></i></a></li>\n        <li><i class=\"fas fa-power-off\" (click)=\"logout()\"></i></li>\n      </ul>\n    </div>\n\n    <!-- search -->\n    <div class=\"search\">\n      <i class=\"fas fa-search\"></i>\n      <input type=\"text\" placeholder=\"Search Scroll\">\n\n    </div>\n</div>\n\n\n  <!---------------Post Dash -------------->\n\n  <div class=\"main_dash\">\n\n    <div class=\"blog_contain\">\n\n      <!-- card one -->\n      <div class=\"blog_card\" *ngFor=\"let card of cards\">\n\n        <div class=\"card_head\">\n          <img class=\"post_profile_photo\" src=\"{{ card.creator_icon }}\" alt=\"\">\n          <h3>{{card.creator_name}} <span>(22min ago)</span></h3>\n          <img class=\"img\" src=\"../assets/img/travel.jpg\" alt=\"\">\n        </div>\n\n        <div class=\"card_contents\">\n          <h2>{{card.title}}</h2>\n          <p>{{card.contents}}</p>\n        </div>\n\n        <div class=\"card_footer\">\n\n            <i class=\"fas fa-scroll\"></i>\n            <p>915</p>\n\n            <i class=\"far fa-comment-dots\"></i>\n\n            <i class=\"fa fa-retweet\" aria-hidden=\"true\"></i>\n\n            <i class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n\n    <!-- settings -->\n\n    <app-settings class=\"settingsStyle\" *ngIf=\"settingsClick\"></app-settings>\n    <!-- <app-settings></app-settings> -->\n\n  </div>\n"
+module.exports = "\n<!---------------Navigation Bar-------------->\n<div class=\"nav_bar\">\n    <div class=\"head_text\">\n      <h1><i class=\"fas fa-scroll scroll_main\"></i>{{title}}</h1>\n    </div>\n\n    <!-- login/registration -->\n    <div class=\"login_register\">\n      <ul>\n        <li><a routerLink=\"/dashboard\" routerLinkActive=\"active\"><i class=\"fas fa-home\"></i></a></li>\n\n        <li><a routerLink=\"/random\" routerLinkActive=\"active\"><i class=\"far fa-compass\"></i></a></li>\n        <li><a routerLink=\"/signup\" routerLinkActive=\"active\"><i class=\"fas fa-comments\"></i></a></li>\n        <li><a><i (click)=\"settings_clicked()\" class=\"fas fa-cog\"></i></a></li>\n        <li><i class=\"fas fa-power-off\" (click)=\"logout()\"></i></li>\n      </ul>\n    </div>\n\n    <!-- search -->\n    <div class=\"search\">\n      <i class=\"fas fa-search\"></i>\n      <input type=\"text\" placeholder=\"Search Scroll\">\n\n    </div>\n</div>\n\n\n  <!---------------Post Dash -------------->\n\n  <div class=\"main_dash\">\n\n    <div class=\"blog_contain\">\n\n      <!-- card one -->\n      <div class=\"blog_card\" *ngFor=\"let card of cards\">\n\n        <div class=\"card_head\">\n          <img class=\"post_profile_photo\" src=\"{{ card.creator_icon }}\" alt=\"\">\n          <h3>{{card.creator_name}} <span>(22min ago)</span></h3>\n          <img class=\"img\" src=\"{{ card.imageurl }}\" alt=\"\">\n        </div>\n\n        <div class=\"card_contents\">\n          <h2>{{card.title}}</h2>\n          <p>{{card.contents}}</p>\n        </div>\n\n        <div class=\"card_footer\">\n\n            <i class=\"fas fa-scroll\"></i>\n            <p>915</p>\n\n            <i class=\"far fa-comment-dots\"></i>\n\n            <i class=\"fa fa-retweet\" aria-hidden=\"true\"></i>\n\n            <i class=\"fa fa-heart\" aria-hidden=\"true\"></i>\n        </div>\n    </div>\n\n    <!-- settings -->\n\n    <app-settings class=\"settingsStyle\" *ngIf=\"settingsClick\"></app-settings>\n    <!-- <app-settings></app-settings> -->\n\n  </div>\n"
 
 /***/ }),
 
@@ -816,8 +970,12 @@ var RandomComponent = /** @class */ (function () {
                 tempCards[i] = tempCards[j];
                 tempCards[j] = temp;
             }
-            _this.cards = tempCards;
-            console.log(data);
+            // to pick 20 posts to display on random component page.
+            var cards20 = [];
+            for (var i = 0; i < 20; i++) {
+                cards20.push(tempCards[i]);
+            }
+            _this.cards = cards20;
         });
     };
     RandomComponent.prototype.thisUser = function () {
@@ -1007,7 +1165,7 @@ var SettingsComponent = /** @class */ (function () {
     SettingsComponent.prototype.ngOnInit = function () {
         this.thisUser();
         jquery__WEBPACK_IMPORTED_MODULE_4__(document).ready(function () {
-            jquery__WEBPACK_IMPORTED_MODULE_4__('img').hover(function () {
+            jquery__WEBPACK_IMPORTED_MODULE_4__('.post_profile_photo').hover(function () {
                 jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr('src', '../assets/img/' + jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr("num") + ".gif");
             }, function () {
                 jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr('src', '../assets/img/' + jquery__WEBPACK_IMPORTED_MODULE_4__(this).attr("num") + ".png");

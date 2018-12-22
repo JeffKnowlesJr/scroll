@@ -13,7 +13,7 @@ import * as $ from 'jquery';
 })
 export class RandomComponent implements OnInit {
   settingsClick = false;
-  
+
   title = "scroll";
   cards = [];
   errors = {};
@@ -46,8 +46,12 @@ export class RandomComponent implements OnInit {
         tempCards[i] = tempCards[j];
         tempCards[j] = temp;
       }
-      this.cards = tempCards;
-      console.log(data);
+      // to pick 20 posts to display on random component page.
+      var cards20 = [];
+      for (let i = 0; i < 20; i++){
+        cards20.push(tempCards[i]);
+      }
+      this.cards = cards20;
     });
   }
 

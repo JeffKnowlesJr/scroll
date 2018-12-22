@@ -45,6 +45,7 @@
 
 
     <app-post *ngIf="add_post && add_postText"  class="post_form_contents"></app-post>
+    <app-postimg *ngIf="add_post && add_postImgText"  class="post_form_contents"></app-postimg>
 
     <!-- <app-upload *ngIf="add_postText"></app-upload> -->
 
@@ -56,34 +57,31 @@
     <div class="blog_contain">
 
       <!-- card one -->
-      <div class="blog_card">
+      <div class="blog_card" *ngFor="let card of cards">
 
-        <!-- <p>Hello {{user.username}}!</p> -->
-        <!-- <p>{{user | json}}</p> -->
+        <div class="card_head">
+          <img class="post_profile_photo" src="{{ card.creator_icon }}" alt="">
+          <h3>{{card.creator_name}} <span>(22min ago)</span></h3>
+          <img class="img" src="{{ card.imageurl }}" alt="">
+        </div>
 
-      <div class="card_head">
+        <div class="card_contents">
+          <h2>{{card.title}}</h2>
+          <p>{{card.contents}}</p>
+        </div>
 
-        <img class="post_profile_photo" src="../assets/img/sky.jpg" alt="">
-        <h3>SkiesTheLimit <span>(22min ago)</span></h3>
-        <img class="img" src="../assets/img/travel.jpg" alt="">
-      </div>
+        <div class="card_footer">
 
-      <div class="card_contents">
-        <h2>Sailing in Greece</h2>
-        <p>I can't believe how amazing this weekend has been. Good food, wine, and friends to share this incredible journey with. I can't wait to visit again...</p>
-      </div>
+            <i class="fas fa-scroll"></i>
+            <p>915</p>
 
-      <div class="card_footer">
+            <i class="far fa-comment-dots"></i>
 
-          <i (click)="notes_clicked()" class="fas fa-scroll"></i>
-          <p>915</p>
+            <i class="fa fa-retweet" aria-hidden="true"></i>
 
-          <i (click)="comment_clicked()" class="far fa-comment-dots"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+        </div>
 
-          <i (click)="reblog_clicked()" class="fa fa-retweet" aria-hidden="true"></i>
-
-          <i (click)="likes_clicked()" class="fa fa-heart" aria-hidden="true"></i>
-      </div>
 
       <!-- *ngIf="opened_comment" -->
       <div class="comment_contain">
@@ -92,11 +90,14 @@
           <input class="submit_comment" type="submit">
         </form>
       </div>
+
     </div>
+
+  </div>
 
     <!-- settings -->
 
     <app-settings class="settingsStyle" *ngIf="settingsClick"></app-settings>
     <!-- <app-settings></app-settings> -->
-    
+
   </div>

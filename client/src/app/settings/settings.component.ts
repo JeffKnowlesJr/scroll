@@ -25,7 +25,7 @@ export class SettingsComponent implements OnInit {
 
     $(document).ready(function() {
 
-        $('img').hover(function() {
+        $('.post_profile_photo').hover(function() {
             $(this).attr('src', '../assets/img/' + $(this).attr("num") + ".gif");
         },
         function(){

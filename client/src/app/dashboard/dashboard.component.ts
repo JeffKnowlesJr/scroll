@@ -14,12 +14,15 @@ export class DashboardComponent implements OnInit {
   title = "scroll";
   add_post = false;
   add_postText = false;
+  add_postImgText = false;
   settingsClick = false;
 
   opened_notes = false;
   opened_comment = false;
   rebloged_post = false;
   liked_post = false;
+
+  imagethere = false;
 
   user: any;
   errors = {};
@@ -82,8 +85,17 @@ export class DashboardComponent implements OnInit {
   getAllCards(){
     let observable = this._postService.getAll();
     observable.subscribe( data => {
-      this.cards = data['posts'];
-      console.log(data);
+      var cardsAll = [];
+      var cards20 = [];
+      for (let i = data['posts'].length-1; i > 0; i--){
+        cardsAll.push(data['posts'][i]);
+      }
+      // to pick 20 posts to display on random component page.
+      for (let i = 0; i < 20; i++){
+        cards20.push(cardsAll[i]);
+      }
+      this.cards = cards20;
+
     });
   }
 
@@ -114,6 +126,17 @@ export class DashboardComponent implements OnInit {
     }
     else{
       this.add_postText = true;
+      this.add_postImgText = false;
+    }
+  }
+
+  image_click() {
+    if(this.add_postImgText) {
+      this.add_postImgText = false;
+    }
+    else{
+      this.add_postImgText = true;
+      this.add_postText = false;
     }
   }
 

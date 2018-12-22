@@ -11,6 +11,10 @@ const PostSchema = new mongoose.Schema(
       required: [true, "Post must have a title."],
       maxlength: [255, "Title must be less than 255 characters."]
     },
+    imageurl: {
+    // Post Model Attribute Title
+      type: String
+    },
     // Post Model Attribute Contents
     contents: {
       type: String,
